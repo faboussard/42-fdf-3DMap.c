@@ -19,6 +19,8 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+# include "get_next_line.h"
+
 # define BASE16_MIN "0123456789abcdef"
 # define BASE10 "0123456789"
 # define BASE16_MAJ "0123456789ABCDEF"
@@ -92,5 +94,6 @@ int						ft_putstr(char *s);
 int						ft_print_and_count_int(int n, const char *base);
 int						print_and_count_ul(unsigned long int n, char *base);
 int						print_and_count_u(unsigned int n, char *base);
+int						ft_abs(int n);
 
 #endif // LIBFT_H

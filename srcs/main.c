@@ -1,0 +1,9 @@
+#include "../includes/libx.h"
+
+int	main(void)
+{
+	void	*mlx;
+
+	mlx = mlx_init();
+}
+

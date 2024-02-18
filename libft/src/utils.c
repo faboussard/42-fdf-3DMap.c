@@ -1,3 +1,7 @@
-//
-// Created by fanny on 17/02/24.
-//
+
+int ft_abs(int n)
+{
+	if (n < 0)
+		n *= -1;
+	return (n);
+}
