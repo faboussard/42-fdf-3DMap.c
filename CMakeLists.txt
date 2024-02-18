@@ -1,11 +1,14 @@
 cmake_minimum_required(VERSION 3.27)
-project(fdf C)
+project(fdf)
 
-set(CMAKE_C_STANDARD 11)
+set(CMAKE_CXX_STANDARD 14)
 
+include_directories(includes)
 include_directories(libft/inc)
+include_directories(mlx_linux)
 
 add_executable(fdf
+        includes/libx.h
         libft/inc/get_next_line.h
         libft/inc/libft.h
         libft/src/ft_is/ft_isalnum.c
@@ -60,5 +63,100 @@ add_executable(fdf
         libft/src/gnl/get_next_line.c
         libft/src/gnl/get_next_line_utils.c
         libft/src/utils.c
-        srcs/main.c
-        includes/libx.h)
+        mlx_linux/man/man1/mlx.1
+        mlx_linux/man/man1/mlx_loop.1
+        mlx_linux/man/man1/mlx_new_image.1
+        mlx_linux/man/man1/mlx_new_window.1
+        mlx_linux/man/man1/mlx_pixel_put.1
+        mlx_linux/man/man3/mlx.3
+        mlx_linux/man/man3/mlx_loop.3
+        mlx_linux/man/man3/mlx_new_image.3
+        mlx_linux/man/man3/mlx_new_window.3
+        mlx_linux/man/man3/mlx_pixel_put.3
+        mlx_linux/obj/mlx_clear_window.o
+        mlx_linux/obj/mlx_destroy_display.o
+        mlx_linux/obj/mlx_destroy_image.o
+        mlx_linux/obj/mlx_destroy_window.o
+        mlx_linux/obj/mlx_expose_hook.o
+        mlx_linux/obj/mlx_flush_event.o
+        mlx_linux/obj/mlx_get_color_value.o
+        mlx_linux/obj/mlx_get_data_addr.o
+        mlx_linux/obj/mlx_hook.o
+        mlx_linux/obj/mlx_init.o
+        mlx_linux/obj/mlx_int_anti_resize_win.o
+        mlx_linux/obj/mlx_int_do_nothing.o
+        mlx_linux/obj/mlx_int_get_visual.o
+        mlx_linux/obj/mlx_int_param_event.o
+        mlx_linux/obj/mlx_int_set_win_event_mask.o
+        mlx_linux/obj/mlx_int_str_to_wordtab.o
+        mlx_linux/obj/mlx_int_wait_first_expose.o
+        mlx_linux/obj/mlx_key_hook.o
+        mlx_linux/obj/mlx_loop.o
+        mlx_linux/obj/mlx_loop_hook.o
+        mlx_linux/obj/mlx_mouse.o
+        mlx_linux/obj/mlx_mouse_hook.o
+        mlx_linux/obj/mlx_new_image.o
+        mlx_linux/obj/mlx_new_window.o
+        mlx_linux/obj/mlx_pixel_put.o
+        mlx_linux/obj/mlx_put_image_to_window.o
+        mlx_linux/obj/mlx_rgb.o
+        mlx_linux/obj/mlx_screen_size.o
+        mlx_linux/obj/mlx_set_font.o
+        mlx_linux/obj/mlx_string_put.o
+        mlx_linux/obj/mlx_xpm.o
+        mlx_linux/test/main.c
+        mlx_linux/test/main.o
+        mlx_linux/test/Makefile.gen
+        mlx_linux/test/Makefile.mk
+        mlx_linux/test/mlx-test
+        mlx_linux/test/new_win.c
+        mlx_linux/test/open.xpm
+        mlx_linux/test/open24.xpm
+        mlx_linux/test/open30.xpm
+        mlx_linux/test/run_tests.sh
+        mlx_linux/configure
+        mlx_linux/libmlx.a
+        mlx_linux/libmlx_Linux.a
+        mlx_linux/LICENSE
+        mlx_linux/Makefile
+        mlx_linux/Makefile.gen
+        mlx_linux/Makefile.mk
+        mlx_linux/mlx.h
+        mlx_linux/mlx_clear_window.c
+        mlx_linux/mlx_destroy_display.c
+        mlx_linux/mlx_destroy_image.c
+        mlx_linux/mlx_destroy_window.c
+        mlx_linux/mlx_expose_hook.c
+        mlx_linux/mlx_ext_randr.c
+        mlx_linux/mlx_flush_event.c
+        mlx_linux/mlx_get_color_value.c
+        mlx_linux/mlx_get_data_addr.c
+        mlx_linux/mlx_hook.c
+        mlx_linux/mlx_init.c
+        mlx_linux/mlx_int.h
+        mlx_linux/mlx_int_anti_resize_win.c
+        mlx_linux/mlx_int_do_nothing.c
+        mlx_linux/mlx_int_get_visual.c
+        mlx_linux/mlx_int_param_event.c
+        mlx_linux/mlx_int_set_win_event_mask.c
+        mlx_linux/mlx_int_str_to_wordtab.c
+        mlx_linux/mlx_int_wait_first_expose.c
+        mlx_linux/mlx_key_hook.c
+        mlx_linux/mlx_lib_xpm.c
+        mlx_linux/mlx_loop.c
+        mlx_linux/mlx_loop_hook.c
+        mlx_linux/mlx_mouse.c
+        mlx_linux/mlx_mouse_hook.c
+        mlx_linux/mlx_new_image.c
+        mlx_linux/mlx_new_window.c
+        mlx_linux/mlx_pixel_put.c
+        mlx_linux/mlx_put_image_to_window.c
+        mlx_linux/mlx_rgb.c
+        mlx_linux/mlx_screen_size.c
+        mlx_linux/mlx_set_font.c
+        mlx_linux/mlx_string_put.c
+        mlx_linux/mlx_xpm.c
+        mlx_linux/mlx_xpm.c.ok
+        mlx_linux/README.md
+        mlx_linux/rgb2c.pl
+        srcs/main.c)

@@ -31,7 +31,6 @@
 char	*get_next_line(int fd);
 char	*ft_concat(char *dst, const char *src, size_t src_len, size_t dstsize);
 int		ft_strchri(const char *s, size_t len, char c, size_t index);
-void	*ft_realloc(void *ptr, unsigned int new_size);
 char	*cook_line(char *s);
 int		ft_stash(const int action, char (*stash)[BUFFER_SIZE],
 			size_t current_index);

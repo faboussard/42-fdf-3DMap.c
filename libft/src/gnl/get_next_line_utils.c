@@ -12,17 +12,7 @@
 
 #include "get_next_line.h"
 
-int	ft_strlen(const char *string)
-{
-	int	i;
-
-	i = 0;
-	while (string[i])
-		i++;
-	return (i);
-}
-
-char	*ft_substr(char const *s, size_t total_len, unsigned int start,
+char	*ft_substr_gnl(char const *s, size_t total_len, unsigned int start,
 		size_t len)
 {
 	char	*substr;
@@ -80,29 +70,4 @@ char	*ft_concat(char *dst, const char *src, size_t src_len, size_t dstsize)
 	}
 	dst[dst_len] = '\0';
 	return (dst);
-}
-
-void	*ft_realloc(void *ptr, unsigned int new_size)
-{
-	char			*new;
-	char			*temp;
-	unsigned int	i;
-
-	i = 0;
-	if (ptr == NULL)
-	{
-		ptr = malloc(new_size);
-		if (ptr == NULL)
-			return (NULL);
-		return (ptr);
-	}
-	if (new_size == 0)
-		return (free(ptr), NULL);
-	new = malloc(new_size + 1);
-	if (new == NULL)
-		return (free(ptr), NULL);
-	temp = ptr;
-	while (i < new_size && temp[i] != '\0')
-		i++;
-	return (free(ptr), new);
 }

@@ -54,7 +54,8 @@ $(NAME):		mlx libft $(OBJS)
 
 $(DIR_BUILD)%.o: %.c
 				mkdir -p $(shell dirname $@)
-				$(CC) $(CFLAGS) $(DEPS_FLAGS) -I $(DIR_MLX) -I $(DIR_HEADERS) -c $< -o $@
+				#$(CFLAGS)
+				$(CC) $(DEPS_FLAGS) -I $(DIR_MLX) -I $(DIR_HEADERS) -c $< -o $@
 
 .PHONY: mlx
 mlx:

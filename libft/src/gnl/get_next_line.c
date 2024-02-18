@@ -77,7 +77,7 @@ char	*fill_line(char *line, char (*stash)[BUFFER_SIZE], int *i, int pos)
 	}
 	else
 	{
-		substring = ft_substr(*stash, BUFFER_SIZE, *i, pos - *i + 1);
+		substring = ft_substr_gnl(*stash, BUFFER_SIZE, *i, pos - *i + 1);
 		if (!substring)
 			return (free(line), ft_stash(SET_INDEX, stash, BUFFER_SIZE), NULL);
 		line = ft_concat(line, substring, ft_strlen(substring), LINE_MAX_SIZE);
