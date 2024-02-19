@@ -21,7 +21,7 @@ SRCS			=	$(addprefix $(DIR_SRCS),$(LIST_SRCS))
 
 # ------------ COMPILATION ------------ #
 
-CFLAGS			=	-Wall -Wextra -Werror -O3
+CFLAGS			=	-Wall -Wextra -Werror -g
 DEPS_FLAGS		=	-MMD -MP
 
 # -------------  COMMANDS ------------- #
@@ -33,10 +33,8 @@ MKDIR			=	mkdir -p
 
 OS				= $(shell uname -s)
 
-ifeq ($(OS), Linux)
-	DIR_MLX		=	mlx_linux/
-	MLX_FLAGS	=	-lXext -lX11 -lm
-endif
+DIR_MLX		=	mlx_linux/
+MLX_FLAGS	=	-lXext -lX11 -lm
 
 #***********************************  RULES  **********************************#
 
@@ -54,8 +52,7 @@ $(NAME):		mlx libft $(OBJS)
 
 $(DIR_BUILD)%.o: %.c
 				mkdir -p $(shell dirname $@)
-				#$(CFLAGS)
-				$(CC) $(DEPS_FLAGS) -I $(DIR_MLX) -I $(DIR_HEADERS) -c $< -o $@
+				$(CC) $(CFLAGS) $(DEPS_FLAGS) -I $(DIR_MLX) -I $(DIR_HEADERS) -c $< -o $@
 
 .PHONY: mlx
 mlx:

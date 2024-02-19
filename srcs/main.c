@@ -1,4 +1,7 @@
 #include <mlx.h>
+#include "../includes/libx.h"
+#include <stdlib.h>
+#include "../libft/inc/libft.h"
 
 typedef struct	s_data {
 	void	*img;
@@ -19,11 +22,10 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 void	generate_checkerboard(t_data *data, int size)
 {
 	int width = 1920; // width of the window
-	int height = 1080; // height of the window
+	int height = 1080;
 
 	for (int i = 0; i < height; i++) {
 		for (int j = 0; j < width; j++) {
-			// Calculate checkerboard pattern based on coordinates
 			int checker_color = ((i / size) + (j / size)) % 2 == 0 ? 0xFFFFFFFF : 0xFF000000;
 
 			my_mlx_pixel_put(data, j, i, checker_color);
@@ -31,22 +33,33 @@ void	generate_checkerboard(t_data *data, int size)
 	}
 }
 
+
+
+int key_hook(int keycode, t_fdf *fdf)
+{
+	if (keycode == ESC)
+	{
+		mlx_destroy_window(fdf->mlx, fdf->win);
+		exit(0);
+	}
+	return 0;
+}
+
+int	close_hook(t_fdf *fdf)
+{
+	mlx_destroy_window(fdf->mlx, fdf->win);
+	exit(0);
+}
+
 int	main(void)
 {
-	void	*mlx;
-	void	*mlx_win;
-	t_data	img;
 
-	mlx = mlx_init();
-	mlx_win = mlx_new_window(mlx, 1920, 1080, "Checkerboard Texture");
-	img.img = mlx_new_image(mlx, 1920, 1080);
-	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
-	                             &img.endian);
+	t_fdf fdf;
 
-	// Generate checkerboard texture
-	generate_checkerboard(&img, 50); // Size of each checker square
-
-	mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
-	mlx_loop(mlx);
+	fdf.mlx = mlx_init();
+	fdf.win = mlx_new_window(fdf.mlx, 1920, 1080, "Fafa Fdf");
+	mlx_hook(fdf.win, ON_KEYDOWN, KEY_PRESS, key_hook, &fdf);
+	mlx_hook(fdf.win, 17, 0, close_hook, &fdf);
+	mlx_loop(fdf.mlx);
 	return (0);
 }
