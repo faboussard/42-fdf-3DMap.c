@@ -5,7 +5,7 @@
 #include "../mlx_linux/mlx.h"
 #include "../libft/inc/libft.h"
 
-typedef struct t_fdf
+typedef struct s_fdf
 {
 	void	*mlx;
 	void	*win;

@@ -50,7 +50,7 @@ SRCS=src/ft_is/ft_isalnum.c\
 	    src/ft_to/ft_tolower.c\
 	    src/ft_to/ft_toupper.c\
 	    src/gnl/get_next_line.c\
-	    src/gnl/get_next_line.c\
+	    src/gnl/get_next_line_utils.c\
 	    src/utils.c\
 
 DIR_INCS		=	inc/
