@@ -26,9 +26,11 @@ int	main(void)
 	fdf.win = mlx_new_window(fdf.mlx, SIZE_X, SIZE_Y, "Fafa Fdf");
 	//parsing
 	//events
+	map_parsing(&data);
 	ft_hook(&fdf);
+
 	mlx_hook(fdf.win, 17, 0, close_hook, &fdf);
-//	map_parsing(&data);
+
 	//fermeture
 
 	mlx_loop(fdf.mlx);

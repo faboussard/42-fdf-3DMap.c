@@ -40,31 +40,6 @@ static size_t	count_letters(const char *str, char c)
 	return (count);
 }
 
-/*
-static size_t	count_letters(const char *str, char c)
-{
-	size_t	count;
-	int		is_word;
-
-	count = 0;
-	is_word = 0;
-	while (*str != '\0')
-	{
-		if (*str != c)
-		{
-			if (is_word == 0)
-			{
-				is_word = 1;
-				count++;
-			}
-		}
-		else
-			is_word = 0;
-		str++;
-	}
-	return (count);
-}
-*/
 static char	**fill_array_with_strings(char **strs_array, const char *s, char c)
 {
 	size_t	i;
