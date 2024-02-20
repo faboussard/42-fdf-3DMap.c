@@ -28,7 +28,7 @@ int	main(void)
 	//events
 	ft_hook(&fdf);
 	mlx_hook(fdf.win, 17, 0, close_hook, &fdf);
-	map_parsing(&data);
+//	map_parsing(&data);
 	//fermeture
 
 	mlx_loop(fdf.mlx);

@@ -66,8 +66,6 @@ add_executable(fdf
         libft/src/gnl/get_next_line.c
         libft/src/gnl/get_next_line_utils.c
         libft/src/utils.c
-        mlx_linux/test/main.c
-        mlx_linux/test/new_win.c
         mlx_linux/mlx.h
         mlx_linux/mlx_clear_window.c
         mlx_linux/mlx_destroy_display.c
@@ -89,7 +87,6 @@ add_executable(fdf
         mlx_linux/mlx_int_str_to_wordtab.c
         mlx_linux/mlx_int_wait_first_expose.c
         mlx_linux/mlx_key_hook.c
-        mlx_linux/mlx_lib_xpm.c
         mlx_linux/mlx_loop.c
         mlx_linux/mlx_loop_hook.c
         mlx_linux/mlx_mouse.c
@@ -107,3 +104,8 @@ add_executable(fdf
         srcs/init.c
         srcs/main.c
         srcs/parsing.c)
+
+target_link_libraries(fdf m)
+target_link_libraries(fdf X11)
+target_link_libraries(fdf Xrandr)
+target_link_libraries(fdf Xext)

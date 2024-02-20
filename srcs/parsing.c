@@ -46,7 +46,7 @@ int map_parsing(t_map *data)
 	}
 	data->height = total_height(fd);
 	data->width = total_width(my_map[i]);
-	printf("%d", data->width);
+	printf("%d", data->height);
 	return(0);
 }
 
