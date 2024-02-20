@@ -5,6 +5,9 @@ NAME			=	fdf
 # --------------- FILES --------------- #
 
 LIST_SRCS		=	main.c \
+					events.c\
+					parsing.c\
+					init.c\
 
 # ------------ DIRECTORIES ------------ #
 
