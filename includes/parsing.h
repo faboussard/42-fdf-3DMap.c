@@ -5,7 +5,10 @@
 typedef struct s_map
 {
 	int	height;
-	int width;
+	int	width;
+	int	x;
+	int	z;
+	int	y;
 }	t_map;
 
 int map_parsing(t_map *data);

@@ -10,19 +10,19 @@ typedef struct	s_data {
 	int		endian;
 }				t_data;
 
-enum key{
+enum e_key{
 	LEFT_KEY = 65361,
 	ESC = 65307,
 };
 
-enum mask{
+enum e_mask{
 	KEY_PRESS = 1L<<0,
 	KEY_RELEASE = 1L<<1,
 	BUTTON_PRESS = 1L<<2,
 	BUTTON_RELEASE = 1L<<3,
 } ;
 
-enum hooking_event{
+enum e_hooking_event{
 	ON_KEYDOWN = 2,
 	ON_KEYUP = 3,
 	ON_MOUSEDOWN = 4,

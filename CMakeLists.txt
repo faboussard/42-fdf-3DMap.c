@@ -103,7 +103,9 @@ add_executable(fdf
         srcs/events.c
         srcs/init.c
         srcs/main.c
-        srcs/parsing.c)
+        srcs/parsing.c
+        srcs/error_management.c
+        includes/error_management.h)
 
 target_link_libraries(fdf m)
 target_link_libraries(fdf X11)
