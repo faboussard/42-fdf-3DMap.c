@@ -2,7 +2,7 @@
 #ifndef FDF_ERROR_MANAGEMENT_H
 #define FDF_ERROR_MANAGEMENT_H
 
-#include "../includes/parsing.h"
+#include "../includes/init.h"
 
 enum e_error{
 	FAILED_MALLOC,

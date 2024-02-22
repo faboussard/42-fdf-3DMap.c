@@ -1,7 +1,7 @@
 #include <fcntl.h>
 #include <stdio.h>
 #include "../includes/libx.h"
-#include "../includes/parsing.h"
+#include "../includes/init.h"
 #include "../includes/error_management.h"
 
 void parse_map(int fd, t_map *data)
@@ -84,7 +84,7 @@ void init_width(int fd, t_map *data)
 	free(split_lines);
 }
 
-void init_coordonates(int fd, t_map *data)
+void init_coordonates(t_map *data)
 {
 	int i;
 	int j;
@@ -111,59 +111,31 @@ void init_coordonates(int fd, t_map *data)
 	}
 }
 
-// Affichage des coordonnées y
-void print_y_coordinates(t_map *data)
-{
-	printf("Y Coordinates:\n");
-	for (int i = 0; i < data->width; i++)
-	{
-		for (int j = 0; j < data->height; j++)
-		{
-			printf("%d ", data->coordonates.y[i][j]);
-		}
-		printf("\n");
-	}
-}
-
-void print_x_coordinates(t_map *data)
-{
-	printf("X Coordinates:\n");
-	for (int i = 0; i < data->width; i++)
-	{
-		for (int j = 0; j < data->height; j++)
-		{
-			printf("%d ", data->coordonates.x[i][j]);
-		}
-		printf("\n");
-	}
-}
-
-//void check_map_shape(t_map *data)
+//// Affichage des coordonnées y
+//void print_y_coordinates(t_map *data)
 //{
-//	int i;
-//	int j;
-//	int n;
-//	int m;
+//	printf("Y Coordinates:\n");
+//	for (int i = 0; i < data->width; i++)
+//	{
+//		for (int j = 0; j < data->height; j++)
+//		{
+//			printf("%d ", data->coordonates.y[i][j]);
+//		}
+//		printf("\n");
+//	}
+//}
 //
-//	i = 0;
-//	j = 0;
-//	n = 0;
-//	m = 0;
-//	while (i < data->height && j < data->width)
+//void print_x_coordinates(t_map *data)
+//{
+//	printf("X Coordinates:\n");
+//	for (int i = 0; i < data->width; i++)
 //	{
-//		while (data->coordonates.x[i][j])
-//			n++;
-//		i++;
+//		for (int j = 0; j < data->height; j++)
+//		{
+//			printf("%d ", data->coordonates.x[i][j]);
+//		}
+//		printf("\n");
 //	}
-//	//n doit etre egale a height * width
-//	while (n < data->width)
-//	{
-//		while (m < data->height)
-//			m++;
-//		n++;
-//	}
-//	if (j + i != m + n)
-//		ft_error(FAILED_MALLOC);
 //}
 
 void init_data(t_map *data, const char *filename)
@@ -175,12 +147,10 @@ void init_data(t_map *data, const char *filename)
 		ft_error(FAILED_OPENING, data);
 	init_width(fd, data);
 	init_height(fd, data);
-	init_coordonates(fd, data);
-	print_x_coordinates(data);
-	print_y_coordinates(data);
-
+	init_coordonates(data);
+//	print_x_coordinates(data);
+//	print_y_coordinates(data);
 	close(fd);
-//	check_map_shape(data);
 	fd = open(filename, O_RDONLY);
 	if (fd < 0)
 		ft_error(FAILED_OPENING, data);
@@ -195,6 +165,4 @@ int map_parsing(t_map *data)
 
 	file_name = "../maps/test.fdf";
 	init_data(data, file_name);
-	//penser a free le split (dans init aussi)
-	//faire que ca ne marche pas si pas resctangulaire ou carre
 }

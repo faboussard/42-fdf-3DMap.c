@@ -91,10 +91,10 @@
 		<Unit filename="/home/faboussa/fdf/includes/init.h">
 			<Option target="fdf"/>
 		</Unit>
-		<Unit filename="/home/faboussa/fdf/includes/libx.h">
+		<Unit filename="/home/faboussa/fdf/includes/isometric_transform.h">
 			<Option target="fdf"/>
 		</Unit>
-		<Unit filename="/home/faboussa/fdf/includes/parsing.h">
+		<Unit filename="/home/faboussa/fdf/includes/libx.h">
 			<Option target="fdf"/>
 		</Unit>
 		<Unit filename="/home/faboussa/fdf/libft/inc/get_next_line.h">
@@ -368,6 +368,9 @@
 			<Option target="fdf"/>
 		</Unit>
 		<Unit filename="/home/faboussa/fdf/srcs/init.c">
+			<Option target="fdf"/>
+		</Unit>
+		<Unit filename="/home/faboussa/fdf/srcs/isometric_tranform.c">
 			<Option target="fdf"/>
 		</Unit>
 		<Unit filename="/home/faboussa/fdf/srcs/main.c">

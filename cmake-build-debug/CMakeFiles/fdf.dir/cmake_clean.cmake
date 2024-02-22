@@ -173,6 +173,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/fdf.dir/srcs/events.c.o.d"
   "CMakeFiles/fdf.dir/srcs/init.c.o"
   "CMakeFiles/fdf.dir/srcs/init.c.o.d"
+  "CMakeFiles/fdf.dir/srcs/isometric_tranform.c.o"
+  "CMakeFiles/fdf.dir/srcs/isometric_tranform.c.o.d"
   "CMakeFiles/fdf.dir/srcs/main.c.o"
   "CMakeFiles/fdf.dir/srcs/main.c.o.d"
   "CMakeFiles/fdf.dir/srcs/parsing.c.o"

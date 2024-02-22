@@ -95,6 +95,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/faboussa/fdf/srcs/error_management.c" "CMakeFiles/fdf.dir/srcs/error_management.c.o" "gcc" "CMakeFiles/fdf.dir/srcs/error_management.c.o.d"
   "/home/faboussa/fdf/srcs/events.c" "CMakeFiles/fdf.dir/srcs/events.c.o" "gcc" "CMakeFiles/fdf.dir/srcs/events.c.o.d"
   "/home/faboussa/fdf/srcs/init.c" "CMakeFiles/fdf.dir/srcs/init.c.o" "gcc" "CMakeFiles/fdf.dir/srcs/init.c.o.d"
+  "/home/faboussa/fdf/srcs/isometric_tranform.c" "CMakeFiles/fdf.dir/srcs/isometric_tranform.c.o" "gcc" "CMakeFiles/fdf.dir/srcs/isometric_tranform.c.o.d"
   "/home/faboussa/fdf/srcs/main.c" "CMakeFiles/fdf.dir/srcs/main.c.o" "gcc" "CMakeFiles/fdf.dir/srcs/main.c.o.d"
   "/home/faboussa/fdf/srcs/parsing.c" "CMakeFiles/fdf.dir/srcs/parsing.c.o" "gcc" "CMakeFiles/fdf.dir/srcs/parsing.c.o.d"
   )

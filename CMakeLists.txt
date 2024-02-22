@@ -9,9 +9,8 @@ include_directories(mlx_linux)
 
 add_executable(fdf
         includes/events.h
-        includes/init.h
         includes/libx.h
-        includes/parsing.h
+        includes/init.h
         libft/inc/get_next_line.h
         libft/inc/libft.h
         libft/src/ft_is/ft_isalnum.c
@@ -105,7 +104,9 @@ add_executable(fdf
         srcs/main.c
         srcs/parsing.c
         srcs/error_management.c
-        includes/error_management.h)
+        includes/error_management.h
+        srcs/isometric_tranform.c
+        includes/isometric_transform.h)
 
 target_link_libraries(fdf m)
 target_link_libraries(fdf X11)

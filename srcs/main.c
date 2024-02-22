@@ -4,7 +4,8 @@
 #include "../libft/inc/libft.h"
 #include "../includes/init.h"
 #include "../includes/events.h"
-#include "parsing.h"
+#include "init.h"
+#include "isometric_transform.h"
 
 
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
@@ -24,11 +25,13 @@ int	main(void)
 	//bouger dans le init, et continuer le init apres avoir fait le parsing
 	fdf.mlx = mlx_init();
 	fdf.win = mlx_new_window(fdf.mlx, SIZE_X, SIZE_Y, "Fafa Fdf");
-	//parsing
 	//events
 	map_parsing(&data);
+	//tranformer les trois axes en 2D
+	//connecter les points entre eux avec des vecteurs (bresenhem)
+	//faire putpixel
 	ft_hook(&fdf);
-
+	isometric_data(&data);
 	mlx_hook(fdf.win, 17, 0, close_hook, &fdf);
 
 	//fermeture

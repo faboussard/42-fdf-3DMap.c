@@ -2217,6 +2217,30 @@ srcs/init.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/fdf.dir/build.make CMakeFiles/fdf.dir/srcs/init.c.s
 .PHONY : srcs/init.c.s
 
+srcs/isometric_tranform.o: srcs/isometric_tranform.c.o
+.PHONY : srcs/isometric_tranform.o
+
+# target to build an object file
+srcs/isometric_tranform.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fdf.dir/build.make CMakeFiles/fdf.dir/srcs/isometric_tranform.c.o
+.PHONY : srcs/isometric_tranform.c.o
+
+srcs/isometric_tranform.i: srcs/isometric_tranform.c.i
+.PHONY : srcs/isometric_tranform.i
+
+# target to preprocess a source file
+srcs/isometric_tranform.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fdf.dir/build.make CMakeFiles/fdf.dir/srcs/isometric_tranform.c.i
+.PHONY : srcs/isometric_tranform.c.i
+
+srcs/isometric_tranform.s: srcs/isometric_tranform.c.s
+.PHONY : srcs/isometric_tranform.s
+
+# target to generate assembly for a file
+srcs/isometric_tranform.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fdf.dir/build.make CMakeFiles/fdf.dir/srcs/isometric_tranform.c.s
+.PHONY : srcs/isometric_tranform.c.s
+
 srcs/main.o: srcs/main.c.o
 .PHONY : srcs/main.o
 
@@ -2535,6 +2559,9 @@ help:
 	@echo "... srcs/init.o"
 	@echo "... srcs/init.i"
 	@echo "... srcs/init.s"
+	@echo "... srcs/isometric_tranform.o"
+	@echo "... srcs/isometric_tranform.i"
+	@echo "... srcs/isometric_tranform.s"
 	@echo "... srcs/main.o"
 	@echo "... srcs/main.i"
 	@echo "... srcs/main.s"
