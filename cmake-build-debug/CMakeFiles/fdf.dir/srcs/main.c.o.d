@@ -64,4 +64,5 @@ CMakeFiles/fdf.dir/srcs/main.c.o: /home/faboussa/fdf/srcs/main.c \
   /home/faboussa/fdf/srcs/../libft/inc/libft.h \
   /home/faboussa/fdf/srcs/../includes/init.h \
   /home/faboussa/fdf/srcs/../includes/events.h \
-  /home/faboussa/fdf/includes/parsing.h
+  /home/faboussa/fdf/includes/init.h \
+  /home/faboussa/fdf/includes/isometric_transform.h
