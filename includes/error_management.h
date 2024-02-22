@@ -11,5 +11,6 @@ enum e_error{
 };
 
 void ft_error(enum e_error error_code, t_map *data);
+void free_split(char **split);
 
 #endif //FDF_ERROR_MANAGEMENT_H

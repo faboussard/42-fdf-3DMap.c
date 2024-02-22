@@ -2,6 +2,22 @@
 #include "../includes/error_management.h"
 #include <stdio.h>
 
+void free_split(char **split)
+{
+	int	i;
+
+	i = 0;
+	if (split != NULL && *split != NULL)
+	{
+		while (split[i])
+		{
+			free(split[i]);
+			i++;
+		}
+		free(split);
+	}
+}
+
 void free_all(t_map *data)
 {
 	int	i;
@@ -9,19 +25,21 @@ void free_all(t_map *data)
 	i = 0;
 	while (i < data->height)
 	{
-		free(data->coordonates.x[i]);
+		if (data->coordonates.x[i])
+			free(data->coordonates.x[i]);
 		i++;
 	}
 	free(data->coordonates.x);
 	i = 0;
 	while (i < data->width)
 	{
-		free(data->coordonates.y[i]);
-		free(data->coordonates.z[i]);
+		if (data->coordonates.y[i])
+			free(data->coordonates.y[i]);
+		if (data->coordonates.z[i])
+			free(data->coordonates.z[i]);
 		i++;
 	}
 	free(data->coordonates.y);
-//	free(data);
 }
 
 void ft_error(enum e_error error_code, t_map *data)
