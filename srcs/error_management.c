@@ -2,21 +2,36 @@
 #include "../includes/error_management.h"
 #include <stdio.h>
 
-void ft_error(enum e_error error_code)
+void free_all(t_map *data)
+{
+	int	i;
+
+	i = 0;
+	while (i < data->height)
+	{
+		free(data->coordonates.x[i]);
+		i++;
+	}
+	free(data->coordonates.x);
+	i = 0;
+	while (i < data->width)
+	{
+		free(data->coordonates.y[i]);
+		free(data->coordonates.z[i]);
+		i++;
+	}
+	free(data->coordonates.y);
+//	free(data);
+}
+
+void ft_error(enum e_error error_code, t_map *data)
 {
 	if (error_code == FAILED_MALLOC)
-	{
 		perror("malloc failed");
-		exit(EXIT_FAILURE);
-	}
 	if (error_code == FAILED_OPENING)
-	{
 		ft_putstr_fd("file did not open properly\n", STDERR_FILENO);
-		exit(EXIT_FAILURE);
-	}
 	if (error_code == WRONG_MAP)
-	{
 		ft_putstr_fd("data to parse does not form a square\n", STDERR_FILENO);
-		exit(EXIT_FAILURE);
-	}
+	free_all(data);
+	exit(EXIT_FAILURE);
 }

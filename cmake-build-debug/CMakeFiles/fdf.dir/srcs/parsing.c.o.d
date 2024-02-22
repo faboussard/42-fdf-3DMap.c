@@ -68,4 +68,5 @@ CMakeFiles/fdf.dir/srcs/parsing.c.o: /home/faboussa/fdf/srcs/parsing.c \
   /home/faboussa/fdf/libft/inc/get_next_line.h \
   /home/faboussa/fdf/libft/inc/libft.h \
   /home/faboussa/fdf/srcs/../includes/parsing.h \
-  /home/faboussa/fdf/srcs/../includes/error_management.h
+  /home/faboussa/fdf/srcs/../includes/error_management.h \
+  /home/faboussa/fdf/includes/../includes/parsing.h

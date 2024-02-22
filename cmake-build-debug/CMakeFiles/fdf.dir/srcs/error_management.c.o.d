@@ -60,7 +60,7 @@ CMakeFiles/fdf.dir/srcs/error_management.c.o: \
   /usr/include/x86_64-linux-gnu/bits/stat.h \
   /home/faboussa/fdf/libft/inc/libft.h \
   /home/faboussa/fdf/srcs/../includes/error_management.h \
-  /usr/include/stdio.h \
+  /home/faboussa/fdf/includes/../includes/parsing.h /usr/include/stdio.h \
   /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
