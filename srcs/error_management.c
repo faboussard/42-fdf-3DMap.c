@@ -18,7 +18,7 @@ void free_split(char **split)
 	}
 }
 
-void	ft_free(double **tab, int j)
+void	ft_free(int **tab, int j)
 {
 	if (tab == NULL)
 		return;

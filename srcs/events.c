@@ -6,7 +6,7 @@ int key_hook(int keycode, t_fdf *fdf)
 {
 	if (keycode == ESC)
 	{
-		mlx_destroy_window(fdf->display.mlx, fdf->display.win);
+		mlx_destroy_window(fdf->my_libx.mlx, fdf->my_libx.win);
 //		exit(0);
 		quit(fdf);
 	}
@@ -15,14 +15,14 @@ int key_hook(int keycode, t_fdf *fdf)
 
 int	close_hook(t_fdf *fdf)
 {
-	mlx_destroy_window(fdf->display.mlx, fdf->display.win);
+	mlx_destroy_window(fdf->my_libx.mlx, fdf->my_libx.win);
 //	exit(0);
 	quit(fdf);
 }
 
 void ft_hook(t_fdf *fdf)
 {
-	mlx_hook(fdf->display.win, ON_KEYDOWN, KEY_PRESS, key_hook, fdf);
+	mlx_hook(fdf->my_libx.win, ON_KEYDOWN, KEY_PRESS, key_hook, fdf);
 }
 
 int quit(t_fdf *fdf)

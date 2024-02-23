@@ -44,6 +44,43 @@
 //	}
 //}
 
+#include <stdio.h>
+#include <math.h>
+
+
+//
+//void create_lines(t_fdf *fdf)
+//{
+//	int	i;
+//	int step;
+//	int dx;
+//	int dy;
+//
+//	dx = ft_abs(fdf->my_map.coordonates.x[0][1] - fdf->my_map.coordonates.x[0][0]);
+//	dy = ft_abs(fdf->my_map.coordonates.y[0][1] - fdf->my_map.coordonates.y[0][0]);
+//
+//	if(dx >= dy)
+//		step = dx;
+//	else
+//		step = dy;
+//
+//	dx = dx / step;
+//	dy = dy / step;
+//
+//	int x = fdf->my_map.coordonates.x[0][0];
+//	int y = fdf->my_map.coordonates.y[0][0];
+//
+//	i = 1;
+//	while( i <= step)
+//	{
+//		my_mlx_pixel_put(fdf, x , y, 5);
+//		x[i] = x+dx;
+//		y=y+dy;
+//		i=i+1;
+//		delay(100);
+//	}
+//}
+
 double angle_radians = 120 * M_PI / 180;
 
 void isometric_data(t_fdf *fdf)
@@ -59,17 +96,15 @@ void isometric_data(t_fdf *fdf)
 	while (i < fdf->my_map.height)
 	{
 		j = 0;
-		fdf->my_map.coordonates.destination_y[i] = malloc(sizeof(double) * fdf->my_map.width);
-		fdf->my_map.coordonates.destination_x[i] = malloc(sizeof(double) * fdf->my_map.width);
+		fdf->my_map.coordonates.destination_y[i] = malloc(sizeof(int) * fdf->my_map.width);
+		fdf->my_map.coordonates.destination_x[i] = malloc(sizeof(int) * fdf->my_map.width);
 		if (fdf->my_map.coordonates.destination_x[i] == NULL || fdf->my_map.coordonates.destination_y[i] == NULL)
 			ft_error(FAILED_MALLOC, fdf);
 		while (j < fdf->my_map.width)
 		{
-			fdf->my_map.coordonates.destination_x[i][j] =
-					(fdf->my_map.coordonates.x[i][j] * cos(angle_radians) + fdf->my_map.coordonates.y[i][j] * cos(angle_radians) +
+			fdf->my_map.coordonates.destination_x[i][j] =(int)(fdf->my_map.coordonates.x[i][j] * cos(angle_radians) + fdf->my_map.coordonates.y[i][j] * cos(angle_radians) +
 					fdf->my_map.coordonates.z[i][j] * cos(angle_radians));
-			fdf->my_map.coordonates.destination_y[i][j] =
-					(fdf->my_map.coordonates.x[i][j] * sin(angle_radians) + fdf->my_map.coordonates.y[i][j] * sin(angle_radians) +
+			fdf->my_map.coordonates.destination_y[i][j] = (int)(fdf->my_map.coordonates.x[i][j] * sin(angle_radians) + fdf->my_map.coordonates.y[i][j] * sin(angle_radians) +
 					fdf->my_map.coordonates.z[i][j] * sin(angle_radians));
 			j++;
 		}

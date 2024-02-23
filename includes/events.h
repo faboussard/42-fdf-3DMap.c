@@ -4,14 +4,6 @@
 
 #include "init.h"
 
-typedef struct	s_data {
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}				t_data;
-
 enum e_key{
 	LEFT_KEY = 65361,
 	ESC = 65307,
