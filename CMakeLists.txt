@@ -105,7 +105,7 @@ add_executable(fdf
         srcs/parsing.c
         srcs/error_management.c
         includes/error_management.h
-        srcs/isometric_tranform.c
+        srcs/isometric_projection.c
         includes/isometric_transform.h
         includes/parsing.h)
 

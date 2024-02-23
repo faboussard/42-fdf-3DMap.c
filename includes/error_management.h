@@ -8,6 +8,7 @@ enum e_error{
 	FAILED_MALLOC,
 	FAILED_OPENING,
 	WRONG_MAP,
+	NO_IMAGE,
 };
 
 void ft_error(enum e_error error_code, t_fdf *data);

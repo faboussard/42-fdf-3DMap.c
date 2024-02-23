@@ -159,10 +159,10 @@ void init_data(t_fdf *fdf, const char *filename)
 }
 
 
-int map_parsing(t_fdf *fdf)
+void map_parsing(t_fdf *fdf)
 {
 	const char *file_name;
 
-	file_name = "../maps/test.fdf";
+	file_name = "../maps/42.fdf";
 	init_data(fdf, file_name);
 }

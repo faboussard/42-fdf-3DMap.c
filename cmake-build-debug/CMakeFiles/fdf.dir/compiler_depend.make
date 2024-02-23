@@ -5862,6 +5862,8 @@ CMakeFiles/fdf.dir/srcs/error_management.c.o: /home/faboussa/fdf/srcs/error_mana
   /home/faboussa/fdf/includes/libx.h \
   /home/faboussa/fdf/libft/inc/libft.h \
   /home/faboussa/fdf/mlx_linux/mlx.h \
+  /home/faboussa/fdf/includes/events.h \
+  /home/faboussa/fdf/includes/init.h \
   /home/faboussa/fdf/libft/inc/get_next_line.h \
   /home/faboussa/fdf/libft/inc/libft.h \
   /home/faboussa/fdf/includes/error_management.h \
@@ -6079,12 +6081,13 @@ CMakeFiles/fdf.dir/srcs/init.c.o: /home/faboussa/fdf/srcs/init.c \
   /usr/lib/llvm-12/lib/clang/12.0.0/include/stdarg.h \
   /usr/lib/llvm-12/lib/clang/12.0.0/include/stddef.h
 
-CMakeFiles/fdf.dir/srcs/isometric_tranform.c.o: /home/faboussa/fdf/srcs/isometric_tranform.c \
+CMakeFiles/fdf.dir/srcs/isometric_projection.c.o: /home/faboussa/fdf/srcs/isometric_projection.c \
   /home/faboussa/fdf/includes/init.h \
   /home/faboussa/fdf/includes/libx.h \
   /home/faboussa/fdf/libft/inc/libft.h \
   /home/faboussa/fdf/mlx_linux/mlx.h \
   /home/faboussa/fdf/includes/error_management.h \
+  /home/faboussa/fdf/includes/events.h \
   /home/faboussa/fdf/includes/init.h \
   /home/faboussa/fdf/includes/libx.h \
   /home/faboussa/fdf/libft/inc/get_next_line.h \
@@ -6341,13 +6344,15 @@ CMakeFiles/fdf.dir/srcs/parsing.c.o: /home/faboussa/fdf/srcs/parsing.c \
 
 /home/faboussa/fdf/includes/isometric_transform.h:
 
+/home/faboussa/fdf/srcs/isometric_projection.c:
+
 /home/faboussa/fdf/srcs/init.c:
 
-/home/faboussa/fdf/includes/events.h:
+/home/faboussa/fdf/includes/error_management.h:
 
 /home/faboussa/fdf/srcs/events.c:
 
-/home/faboussa/fdf/includes/error_management.h:
+/home/faboussa/fdf/includes/events.h:
 
 /home/faboussa/fdf/srcs/error_management.c:
 
@@ -6592,8 +6597,6 @@ CMakeFiles/fdf.dir/srcs/parsing.c.o: /home/faboussa/fdf/srcs/parsing.c \
 /home/faboussa/fdf/libft/src/ft_put/ft_putstr_fd.c:
 
 /home/faboussa/fdf/libft/src/ft_str/ft_split.c:
-
-/home/faboussa/fdf/srcs/isometric_tranform.c:
 
 /home/faboussa/fdf/libft/src/ft_str/ft_strchr.c:
 

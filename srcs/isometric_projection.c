@@ -2,6 +2,7 @@
 #include "libx.h"
 #include "error_management.h"
 #include <math.h>
+#include "events.h"
 
 #include <stdio.h> // A SUPPRIMER
 
@@ -48,46 +49,61 @@
 #include <math.h>
 
 
-//
-//void create_lines(t_fdf *fdf)
-//{
-//	int	i;
-//	int step;
-//	int dx;
-//	int dy;
-//
-//	dx = ft_abs(fdf->my_map.coordonates.x[0][1] - fdf->my_map.coordonates.x[0][0]);
-//	dy = ft_abs(fdf->my_map.coordonates.y[0][1] - fdf->my_map.coordonates.y[0][0]);
-//
-//	if(dx >= dy)
-//		step = dx;
-//	else
-//		step = dy;
-//
-//	dx = dx / step;
-//	dy = dy / step;
-//
-//	int x = fdf->my_map.coordonates.x[0][0];
-//	int y = fdf->my_map.coordonates.y[0][0];
-//
-//	i = 1;
-//	while( i <= step)
-//	{
-//		my_mlx_pixel_put(fdf, x , y, 5);
-//		x[i] = x+dx;
-//		y=y+dy;
-//		i=i+1;
-//		delay(100);
-//	}
-//}
+void draw_line(t_fdf *fdf, int x1, int y1, int x2, int y2)
+{
+	int	i;
+	int step;
+	int dx;
+	int dy;
 
-double angle_radians = 120 * M_PI / 180;
+	dx = ft_abs(x2 - x1);
+	dy = ft_abs(y2 - y1);
+	if(dx >= dy)
+		step = dx;
+	else
+		step = dy;
+	i = 1;
+	while( i <= step)
+	{
+		my_mlx_pixel_put(fdf, x1 , y1, 0x00FF0000);
+		x1 = x1 + dx;
+		y1 = y1 + dy;
+		i++;
+	}
+}
 
-void isometric_data(t_fdf *fdf)
+
+void create_lines(t_fdf *fdf)
 {
 	int i;
 	int j;
 
+	i = 0;
+	while (i < fdf->my_map.height)
+	{
+		j = 0;
+		while (j < fdf->my_map.width)
+		{
+			if (j + 1 < fdf->my_map.width)
+			{
+				draw_line(fdf, fdf->my_map.coordonates.destination_x[i][j], fdf->my_map.coordonates.destination_y[i][j],
+						  fdf->my_map.coordonates.destination_x[i][j + 1], fdf->my_map.coordonates.destination_y[i][j + 1]);
+			}
+			j++;
+		}
+		i++;
+	}
+	if (!mlx_put_image_to_window(fdf->my_libx.mlx, fdf->my_libx.win, fdf->my_image.img, 0, 0))
+		ft_error(NO_IMAGE, fdf);
+}
+
+void isometric_projection(t_fdf *fdf)
+{
+	int i;
+	int j;
+	int angle_radians;
+
+	angle_radians = (int)(120 * M_PI / 180);
 	i = 0;
 	fdf->my_map.coordonates.destination_x = malloc(fdf->my_map.height * sizeof(int *));
 	fdf->my_map.coordonates.destination_y = malloc(fdf->my_map.height * sizeof(int *));
@@ -110,6 +126,7 @@ void isometric_data(t_fdf *fdf)
 		}
 		i++;
 	}
+	create_lines(fdf);
 //	print_x_coordinates_dest(data);
 //	print_y_coordinates_dest(data);
 }
