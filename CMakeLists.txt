@@ -106,7 +106,8 @@ add_executable(fdf
         srcs/error_management.c
         includes/error_management.h
         srcs/isometric_tranform.c
-        includes/isometric_transform.h)
+        includes/isometric_transform.h
+        includes/parsing.h)
 
 target_link_libraries(fdf m)
 target_link_libraries(fdf X11)

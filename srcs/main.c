@@ -6,6 +6,7 @@
 #include "../includes/events.h"
 #include "init.h"
 #include "isometric_transform.h"
+#include "parsing.h"
 
 
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
@@ -22,20 +23,21 @@ int	main(void)
 	t_fdf fdf;
 	t_map data;
 
-	//bouger dans le init, et continuer le init apres avoir fait le parsing
-	fdf.mlx = mlx_init();
-	fdf.win = mlx_new_window(fdf.mlx, SIZE_X, SIZE_Y, "Fafa Fdf");
+	init_map(&data);
+	fdf.display.mlx = mlx_init();
+	fdf.display.win = mlx_new_window(fdf.display.mlx, SIZE_X, SIZE_Y, "Fafa Fdf");
 	//events
-	map_parsing(&data);
-	//tranformer les trois axes en 2D
+	map_parsing(&fdf);
+	isometric_data(&fdf);
 	//connecter les points entre eux avec des vecteurs (bresenhem)
 	//faire putpixel
-	ft_hook(&fdf);
-	isometric_data(&data);
-	mlx_hook(fdf.win, 17, 0, close_hook, &fdf);
+	//fonction save qui garde letat actuel pour revenir dessus ( bonus)
+//	ft_hook(&fdf);
+
+	mlx_hook(fdf.display.win, 17, 0, close_hook, &fdf);
 
 	//fermeture
 
-	mlx_loop(fdf.mlx);
+	mlx_loop(fdf.display.mlx);
 	return (0);
 }

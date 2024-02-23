@@ -2,6 +2,8 @@
 #ifndef FDF_EVENTS_H
 #define FDF_EVENTS_H
 
+#include "init.h"
+
 typedef struct	s_data {
 	void	*img;
 	char	*addr;
@@ -34,5 +36,6 @@ enum e_hooking_event{
 
 void ft_hook(t_fdf *fdf);
 int	close_hook(t_fdf *fdf);
+int quit(t_fdf *fdf);
 
 #endif //FDF_EVENTS_H

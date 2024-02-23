@@ -10,7 +10,8 @@ enum e_error{
 	WRONG_MAP,
 };
 
-void ft_error(enum e_error error_code, t_map *data);
+void ft_error(enum e_error error_code, t_fdf *data);
 void free_split(char **split);
+void free_all(t_fdf *fdf);
 
 #endif //FDF_ERROR_MANAGEMENT_H

@@ -4,6 +4,6 @@
 
 #include "init.h"
 
-void isometric_data(t_map *data);
+void isometric_data(t_fdf *fdf);
 
 #endif //FDF_ISOMETRIC_TRANSFORM_H

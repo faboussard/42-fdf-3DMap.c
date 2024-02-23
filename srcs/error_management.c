@@ -18,31 +18,31 @@ void free_split(char **split)
 	}
 }
 
-void free_all(t_map *data)
+void	ft_free(double **tab, int j)
 {
+	if (tab == NULL)
+		return;
 	int	i;
 
 	i = 0;
-	while (i < data->height)
+	while (i < j)
 	{
-		if (data->coordonates.x[i])
-			free(data->coordonates.x[i]);
+		free(tab[i]);
 		i++;
 	}
-	free(data->coordonates.x);
-	i = 0;
-	while (i < data->width)
-	{
-		if (data->coordonates.y[i])
-			free(data->coordonates.y[i]);
-		if (data->coordonates.z[i])
-			free(data->coordonates.z[i]);
-		i++;
-	}
-	free(data->coordonates.y);
+	free(tab);
 }
 
-void ft_error(enum e_error error_code, t_map *data)
+void free_all(t_fdf *fdf)
+{
+	ft_free(fdf->my_map.coordonates.x, fdf->my_map.height);
+	ft_free(fdf->my_map.coordonates.y, fdf->my_map.height);
+	ft_free(fdf->my_map.coordonates.z, fdf->my_map.height);
+	ft_free(fdf->my_map.coordonates.destination_x, fdf->my_map.height);
+	ft_free(fdf->my_map.coordonates.destination_y, fdf->my_map.height);
+}
+
+void ft_error(enum e_error error_code, t_fdf *fdf)
 {
 	if (error_code == FAILED_MALLOC)
 		perror("malloc failed");
@@ -50,6 +50,6 @@ void ft_error(enum e_error error_code, t_map *data)
 		ft_putstr_fd("file did not open properly\n", STDERR_FILENO);
 	if (error_code == WRONG_MAP)
 		ft_putstr_fd("data to parse does not form a square\n", STDERR_FILENO);
-	free_all(data);
+	free_all(fdf);
 	exit(EXIT_FAILURE);
 }
