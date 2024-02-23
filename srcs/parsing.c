@@ -90,18 +90,18 @@ void init_coordonates(t_map *data)
 	int j;
 
 	i = 0;
-	data->coordonates.x = malloc(data->width * sizeof(int *));
-	data->coordonates.y = malloc(data->width * sizeof(int *));
+	data->coordonates.x = malloc(data->height * sizeof(int *));
+	data->coordonates.y = malloc(data->height * sizeof(int *));
 	if (data->coordonates.x == NULL || data->coordonates.y == NULL)
 		ft_error(FAILED_MALLOC, data);
-	while (i < data->width)
+	while (i < data->height)
 	{
 		j = 0;
-		data->coordonates.y[i] = malloc(sizeof(int) * data->height);
-		data->coordonates.x[i] = malloc(sizeof(int) * data->height);
+		data->coordonates.x[i] = malloc(sizeof(int) * data->width);
+		data->coordonates.y[i] = malloc(sizeof(int) * data->width);
 		if (data->coordonates.x[i] == NULL || data->coordonates.y[i] == NULL)
 			ft_error(FAILED_MALLOC, data);
-		while (j < data->height)
+		while (j < data->width)
 		{
 			data->coordonates.y[i][j] = j;
 			data->coordonates.x[i][j] = i;
@@ -111,13 +111,13 @@ void init_coordonates(t_map *data)
 	}
 }
 
-//// Affichage des coordonnées y
+// Affichage des coordonnées y
 //void print_y_coordinates(t_map *data)
 //{
 //	printf("Y Coordinates:\n");
-//	for (int i = 0; i < data->width; i++)
+//	for (int i = 0; i < data->height; i++)
 //	{
-//		for (int j = 0; j < data->height; j++)
+//		for (int j = 0; j < data->width; j++)
 //		{
 //			printf("%d ", data->coordonates.y[i][j]);
 //		}
@@ -128,9 +128,9 @@ void init_coordonates(t_map *data)
 //void print_x_coordinates(t_map *data)
 //{
 //	printf("X Coordinates:\n");
-//	for (int i = 0; i < data->width; i++)
+//	for (int i = 0; i < data->height; i++)
 //	{
-//		for (int j = 0; j < data->height; j++)
+//		for (int j = 0; j < data->width; j++)
 //		{
 //			printf("%d ", data->coordonates.x[i][j]);
 //		}
