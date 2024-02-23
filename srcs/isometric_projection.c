@@ -48,29 +48,54 @@
 #include <stdio.h>
 #include <math.h>
 
+//
+//void draw_line(t_fdf *fdf, int x1, int y1, int x2, int y2)
+//{
+//	int	i;
+//	int step;
+//	int dx;
+//	int dy;
+//
+//	dx = ft_abs(x2 - x1);
+//	dy = ft_abs(y2 - y1);
+//	if(dx >= dy)
+//		step = dx;
+//	else
+//		step = dy;
+//	i = 1;
+//	while( i <= step)
+//	{
+//		my_mlx_pixel_put(fdf, x1 , y1, 0x00FF0000);
+//		x1 = x1 + dx;
+//		y1 = y1 + dy;
+//		i++;
+//	}
+//}
 
-void draw_line(t_fdf *fdf, int x1, int y1, int x2, int y2)
-{
-	int	i;
-	int step;
-	int dx;
-	int dy;
-
-	dx = ft_abs(x2 - x1);
-	dy = ft_abs(y2 - y1);
-	if(dx >= dy)
-		step = dx;
-	else
-		step = dy;
-	i = 1;
-	while( i <= step)
-	{
-		my_mlx_pixel_put(fdf, x1 , y1, 0x00FF0000);
-		x1 = x1 + dx;
-		y1 = y1 + dy;
-		i++;
-	}
-}
+//
+//void create_lines(t_fdf *fdf)
+//{
+//	int i;
+//	int j;
+//
+//	i = 0;
+//	while (i < fdf->my_map.height)
+//	{
+//		j = 0;
+//		while (j < fdf->my_map.width)
+//		{
+//			if (j + 1 < fdf->my_map.width)
+//			{
+//				draw_line(fdf, fdf->my_map.coordonates.destination_x[i][j], fdf->my_map.coordonates.destination_y[i][j],
+//						  fdf->my_map.coordonates.destination_x[i][j + 1], fdf->my_map.coordonates.destination_y[i][j + 1]);
+//			}
+//			j++;
+//		}
+//		i++;
+//	}
+//	if (!mlx_put_image_to_window(fdf->my_libx.mlx, fdf->my_libx.win, fdf->my_image.img, 0, 0))
+//		ft_error(NO_IMAGE, fdf);
+//}
 
 
 void create_lines(t_fdf *fdf)
@@ -84,12 +109,8 @@ void create_lines(t_fdf *fdf)
 		j = 0;
 		while (j < fdf->my_map.width)
 		{
-			if (j + 1 < fdf->my_map.width)
-			{
-				draw_line(fdf, fdf->my_map.coordonates.destination_x[i][j], fdf->my_map.coordonates.destination_y[i][j],
-						  fdf->my_map.coordonates.destination_x[i][j + 1], fdf->my_map.coordonates.destination_y[i][j + 1]);
-			}
-			j++;
+				my_mlx_pixel_put(fdf, fdf->my_map.coordonates.destination_x[i][j] , fdf->my_map.coordonates.destination_y[i][j], 0x00FF0000);
+				j++;
 		}
 		i++;
 	}

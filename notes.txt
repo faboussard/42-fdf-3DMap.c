@@ -1,2 +1,3 @@
 quand librer free fdf ?
 verifier la liberatin des structures et celles de libx
+verifier avec yoko quon a les memes coordonnees apres translation.

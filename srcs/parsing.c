@@ -163,6 +163,6 @@ void map_parsing(t_fdf *fdf)
 {
 	const char *file_name;
 
-	file_name = "../maps/42.fdf";
+	file_name = "../maps/test.fdf";
 	init_data(fdf, file_name);
 }
