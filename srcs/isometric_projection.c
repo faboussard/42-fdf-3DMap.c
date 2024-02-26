@@ -16,8 +16,8 @@ void print_dest_coordinates(t_fdf *fdf)
 	{
 		for (int j = 0; j < fdf->my_map.width; j++)
 		{
-			printf("x = %d ", fdf->my_map.coordonates.destination_x[i][j]);
-			printf("y = %d ", fdf->my_map.coordonates.destination_y[i][j]);
+			printf("x = %f ", fdf->my_map.coordonates.destination_x[i][j]);
+			printf("y = %f ", fdf->my_map.coordonates.destination_y[i][j]);
 			printf("\n");
 		}
 		printf("\n");
@@ -28,7 +28,7 @@ void print_dest_coordinates(t_fdf *fdf)
 #include <stdio.h>
 #include <math.h>
 
-void my_pixel_put(t_fdf *fdf, float x, float y, int color)
+void my_pixel_put(t_fdf *fdf, int x, int y, int color)
 {
 	char *dst;
 	int offset;
@@ -123,7 +123,7 @@ void isometric_projection(t_fdf *fdf)
 	int		j;
 	double	radian = degree_to_radian();
 	double	resize = abs(fdf->my_map.width + fdf->my_map.width - fdf->my_map.height) * sqrt(3);
-	double	resize2 = (abs(fdf->my_map.height + fdf->my_map.height - fdf->my_map.width) * sqrt(3));
+	double	resize2 = (abs(fdf->my_map.height + fdf->my_map.height - fdf->my_map.width) * 8);
 
 
 	i = 0;
@@ -140,9 +140,9 @@ void isometric_projection(t_fdf *fdf)
 			raise_error(FAILED_MALLOC, fdf);
 		while (j < fdf->my_map.width)
 		{
-			fdf->my_map.coordonates.destination_x[i][j] = (float)((fdf->my_map.coordonates.x[i][j] - ((fdf->my_map.coordonates.y[i][j]) * cos(radian)))) * resize2 * -1;
+			fdf->my_map.coordonates.destination_x[i][j] = (float)((fdf->my_map.coordonates.x[i][j] - ((fdf->my_map.coordonates.y[i][j]) * cos(radian))) * resize2 * -1);
 			fdf->my_map.coordonates.destination_y[i][j] = (float)((((fdf->my_map.coordonates.x[i][j] + fdf->my_map.coordonates.y[i][j]) * sin(radian) -
-																  fdf->my_map.coordonates.z[i][j])) * resize2);
+																  fdf->my_map.coordonates.z[i][j]) * resize2));
 			j++;
 		}
 		i++;
