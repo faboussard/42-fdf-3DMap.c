@@ -30,26 +30,26 @@ void parse_map(int fd, t_fdf *fdf)
 	i = 0;
 	fdf->my_map.coordonates.z = malloc(fdf->my_map.height * sizeof(int *));
 	if (fdf->my_map.coordonates.z  == NULL)
-		ft_error(FAILED_MALLOC, fdf);;
+		raise_error(FAILED_MALLOC, fdf);;
 	while (i < fdf->my_map.height)
 	{
 		fdf->my_map.coordonates.z[i] = malloc(sizeof(int) * fdf->my_map.width);
 		if (fdf->my_map.coordonates.z[i] == NULL)
-			ft_error(FAILED_MALLOC, fdf);
+			raise_error(FAILED_MALLOC, fdf);
 		line = (get_next_line(fd));
 		if (line == NULL)
-			ft_error(FAILED_MALLOC, fdf);
+			raise_error(FAILED_MALLOC, fdf);
 		split_lines = ft_split(line, ' ');
 		free(line);
 		if (split_lines == NULL)
-			ft_error(FAILED_MALLOC, fdf);
+			raise_error(FAILED_MALLOC, fdf);
 		j = 0;
 		while (j < fdf->my_map.width)
 		{
 			if (split_lines[j] == NULL)
 			{
 				free(split_lines);
-				ft_error(WRONG_MAP, fdf);
+				raise_error(WRONG_MAP, fdf);
 			}
 			fdf->my_map.coordonates.z[i][j] = ft_atoi(split_lines[j]);
 			free(split_lines[j]);
@@ -85,12 +85,12 @@ void init_width(int fd, t_fdf *fdf)
 
 	line = get_next_line(fd);
 	if (line == NULL)
-		ft_error(FAILED_MALLOC, fdf);
+		raise_error(FAILED_MALLOC, fdf);
 	i = 0;
 	split_lines = ft_split(line, ' ');
 	free(line);
 	if (split_lines == NULL)
-		ft_error(FAILED_MALLOC, fdf);
+		raise_error(FAILED_MALLOC, fdf);
 	while (split_lines[i] != NULL)
 	{
 		free(split_lines[i]);
@@ -109,14 +109,14 @@ void init_coordonates(t_fdf *fdf)
 	fdf->my_map.coordonates.x = malloc(fdf->my_map.height * sizeof(int *));
 	fdf->my_map.coordonates.y = malloc(fdf->my_map.height * sizeof(int *));
 	if (fdf->my_map.coordonates.x == NULL || fdf->my_map.coordonates.y == NULL)
-		ft_error(FAILED_MALLOC, fdf);
+		raise_error(FAILED_MALLOC, fdf);
 	while (i < fdf->my_map.height)
 	{
 		j = 0;
 		fdf->my_map.coordonates.x[i] = malloc(sizeof(int) * fdf->my_map.width);
 		fdf->my_map.coordonates.y[i] = malloc(sizeof(int) * fdf->my_map.width);
 		if (fdf->my_map.coordonates.x[i] == NULL || fdf->my_map.coordonates.y[i] == NULL)
-			ft_error(FAILED_MALLOC, fdf);
+			raise_error(FAILED_MALLOC, fdf);
 		while (j < fdf->my_map.width)
 		{
 			fdf->my_map.coordonates.y[i][j] = j;
@@ -133,22 +133,21 @@ void init_data(t_fdf *fdf, const char *filename)
 
 	fd = open(filename, O_RDONLY);
 	if (fd < 0)
-		ft_error(FAILED_OPENING, fdf);
+		raise_error(FAILED_OPENING, fdf);
 	init_width(fd, fdf);
 	init_height(fd, fdf);
 	init_coordonates(fdf);
 	close(fd);
 	fd = open(filename, O_RDONLY);
 	if (fd < 0)
-		ft_error(FAILED_OPENING, fdf);
+		raise_error(FAILED_OPENING, fdf);
 	parse_map(fd, fdf);
-	print_coordinates(fdf);
 	close(fd);
 }
 
 void map_parsing(t_fdf *fdf)
 {
-	const char *file_name;
+	const char	*file_name;
 
 	file_name = "../maps/42.fdf";
 	init_data(fdf, file_name);

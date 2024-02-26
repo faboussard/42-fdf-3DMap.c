@@ -15,13 +15,3 @@ void init(t_fdf *fdf)
 	fdf->my_image.addr = mlx_get_data_addr(fdf->my_image.img, &fdf->my_image.bits_per_pixel, &fdf->my_image.line_length,
 								 &fdf->my_image.endian);
 }
-
-void	my_mlx_pixel_put(t_fdf *fdf, int x, int y, int color)
-{
-	char	*dst;
-	int		offset;
-
-	offset = (y * fdf->my_image.line_length + x * (fdf->my_image.bits_per_pixel / 8));
-	dst = fdf->my_image.addr + offset;
-	*(unsigned int*)dst = color;
-}

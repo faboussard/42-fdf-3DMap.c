@@ -64,4 +64,5 @@ CMakeFiles/fdf.dir/srcs/events.c.o: /home/faboussa/fdf/srcs/events.c \
   /home/faboussa/fdf/includes/init.h \
   /home/faboussa/fdf/includes/../includes/libx.h \
   /home/faboussa/fdf/srcs/../includes/error_management.h \
-  /home/faboussa/fdf/includes/../includes/init.h
+  /home/faboussa/fdf/includes/../includes/init.h \
+  /usr/include/X11/keysym.h /usr/include/X11/keysymdef.h

@@ -12,7 +12,7 @@ enum e_error{
 	NO_IMAGE,
 };
 
-void ft_error(enum e_error error_code, t_fdf *data);
+void raise_error(enum e_error error_code, t_fdf *data);
 void free_split(char **split);
 void free_all(t_fdf *fdf);
 

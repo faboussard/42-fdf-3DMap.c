@@ -20,7 +20,7 @@ int	main(void)
 		ft_hook(&fdf);
 		mlx_hook(fdf.my_libx.win, 17, 0, close_hook, &fdf);
 		map_parsing(&fdf);
-//		isometric_projection(&fdf);
+		isometric_projection(&fdf);
 		mlx_loop(fdf.my_libx.mlx);
 //	}
 //	else

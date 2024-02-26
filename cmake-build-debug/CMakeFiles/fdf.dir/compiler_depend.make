@@ -5950,6 +5950,8 @@ CMakeFiles/fdf.dir/srcs/events.c.o: /home/faboussa/fdf/srcs/events.c \
   /home/faboussa/fdf/libft/inc/libft.h \
   /home/faboussa/fdf/includes/error_management.h \
   /home/faboussa/fdf/includes/events.h \
+  /usr/include/X11/keysym.h \
+  /usr/include/X11/keysymdef.h \
   /usr/include/alloca.h \
   /usr/include/endian.h \
   /usr/include/fcntl.h \

@@ -46,7 +46,7 @@ void free_all(t_fdf *fdf)
 //	free(fdf->my_libx.mlx);
 }
 
-void ft_error(enum e_error error_code, t_fdf *fdf)
+void raise_error(enum e_error error_code, t_fdf *data)
 {
 	if (error_code == FAILED_MALLOC)
 		ft_putstr_fd("malloc failed. Exit\n", STDERR_FILENO);
@@ -56,6 +56,8 @@ void ft_error(enum e_error error_code, t_fdf *fdf)
 		ft_putstr_fd("data to parse does not form a square. Exit\n", STDERR_FILENO);
 	if (error_code == NO_IMAGE)
 		ft_putstr_fd("image cannot be rendered. Exit.\n", STDERR_FILENO);
-	mlx_destroy_window(fdf->my_libx.mlx, fdf->my_libx.win);
-	mlx_destroy_display(fdf->my_libx.mlx);
+	mlx_destroy_window(data->my_libx.mlx, data->my_libx.win);
+	mlx_destroy_display(data->my_libx.mlx);
+	free_all(data);
+	exit(EXIT_FAILURE);
 }
