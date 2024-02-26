@@ -4,6 +4,8 @@
 
 #define SIZE_X 1920
 #define SIZE_Y 1080
+#define WIDTH SIZE_X / 2
+#define HEIGHT SIZE_Y / 2
 
 #include <stddef.h>
 #include "../includes/libx.h"
@@ -47,6 +49,5 @@ typedef struct s_fdf
 } t_fdf;
 
 void	init(t_fdf *fdf);
-void	my_mlx_pixel_put(t_fdf *fdf, int x, int y, int color);
 
 #endif //FDF_INIT_H

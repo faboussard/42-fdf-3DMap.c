@@ -6,23 +6,20 @@
 
 #include <stdio.h> // A SUPPRIMER
 
-#define WIDTH SIZE_X / 2
-#define HEIGHT SIZE_Y / 2
-
-void print_dest_coordinates(t_fdf *fdf)
-{
-	printf("X destination Coordinates:\n");
-	for (int i = 0; i < fdf->my_map.height; i++)
-	{
-		for (int j = 0; j < fdf->my_map.width; j++)
-		{
-			printf("x = %f ", fdf->my_map.coordonates.destination_x[i][j]);
-			printf("y = %f ", fdf->my_map.coordonates.destination_y[i][j]);
-			printf("\n");
-		}
-		printf("\n");
-	}
-}
+//void print_dest_coordinates(t_fdf *fdf)
+//{
+//	printf("X destination Coordinates:\n");
+//	for (int i = 0; i < fdf->my_map.height; i++)
+//	{
+//		for (int j = 0; j < fdf->my_map.width; j++)
+//		{
+//			printf("x = %f ", fdf->my_map.coordonates.destination_x[i][j]);
+//			printf("y = %f ", fdf->my_map.coordonates.destination_y[i][j]);
+//			printf("\n");
+//		}
+//		printf("\n");
+//	}
+//}
 
 
 #include <stdio.h>
@@ -123,7 +120,7 @@ void isometric_projection(t_fdf *fdf)
 	int		j;
 	double	radian = degree_to_radian();
 	double	resize = abs(fdf->my_map.width + fdf->my_map.width - fdf->my_map.height) * sqrt(3);
-	double	resize2 = (abs(fdf->my_map.height + fdf->my_map.height - fdf->my_map.width) * 8);
+	double	resize2 = (abs(fdf->my_map.height + fdf->my_map.height - fdf->my_map.width) * sqrt(40));
 
 
 	i = 0;
@@ -147,7 +144,7 @@ void isometric_projection(t_fdf *fdf)
 		}
 		i++;
 	}
-	print_dest_coordinates(fdf);
+//	print_dest_coordinates(fdf);
 	create_lines(fdf);
 }
 
