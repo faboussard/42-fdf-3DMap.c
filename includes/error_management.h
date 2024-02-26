@@ -5,6 +5,7 @@
 #include "../includes/init.h"
 
 enum e_error{
+	MLX_ERROR,
 	FAILED_MALLOC,
 	FAILED_OPENING,
 	WRONG_MAP,

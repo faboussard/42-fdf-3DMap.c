@@ -1,3 +1,7 @@
 quand librer free fdf ?
 verifier la liberatin des structures et celles de libx
-verifier avec yoko quon a les memes coordonnees apres translation.
+pb : events.h : ferme a nimporte quel moment.
+
+PARSING OK ON RECUPERE BIEN Z
+
+CHERCHER DQNS MNULIBX TOUS LES MALLOC A LIBRER ET A VERIF A LA CREATION

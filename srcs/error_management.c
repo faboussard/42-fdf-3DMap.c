@@ -42,8 +42,8 @@ void free_all(t_fdf *fdf)
 	ft_free(fdf->my_map.coordonates.destination_x, fdf->my_map.height);
 	ft_free(fdf->my_map.coordonates.destination_y, fdf->my_map.height);
 //	free(fdf->my_image.img);
-//	free(fdf->my_image.addr);
-//	free(fdf);
+//	free(fdf->my_libx.win);
+//	free(fdf->my_libx.mlx);
 }
 
 void ft_error(enum e_error error_code, t_fdf *fdf)
@@ -58,5 +58,4 @@ void ft_error(enum e_error error_code, t_fdf *fdf)
 		ft_putstr_fd("image cannot be rendered. Exit.\n", STDERR_FILENO);
 	mlx_destroy_window(fdf->my_libx.mlx, fdf->my_libx.win);
 	mlx_destroy_display(fdf->my_libx.mlx);
-	quit(fdf);
 }

@@ -4,11 +4,6 @@
 
 #include "init.h"
 
-enum e_key{
-	LEFT_KEY = 65361,
-	ESC = 65307,
-};
-
 enum e_mask{
 	KEY_PRESS = 1L<<0,
 	KEY_RELEASE = 1L<<1,

@@ -4,6 +4,22 @@
 #include "../includes/init.h"
 #include "../includes/error_management.h"
 
+void print_coordinates(t_fdf *fdf)
+{
+	printf("destination Coordinates:\n");
+	for (int i = 0; i < fdf->my_map.height; i++)
+	{
+		for (int j = 0; j < fdf->my_map.width; j++)
+		{
+			printf("x = %d ", fdf->my_map.coordonates.x[i][j]);
+			printf("y = %d ", fdf->my_map.coordonates.y[i][j]);
+			printf("z = %d ", fdf->my_map.coordonates.z[i][j]);
+			printf("\n");
+		}
+		printf("\n");
+	}
+}
+
 void parse_map(int fd, t_fdf *fdf)
 {
 	int	i;
@@ -111,33 +127,6 @@ void init_coordonates(t_fdf *fdf)
 	}
 }
 
-// Affichage des coordonnées y
-//void print_y_coordinates(t_map *data)
-//{
-//	printf("Y Coordinates:\n");
-//	for (int i = 0; i < data->height; i++)
-//	{
-//		for (int j = 0; j < data->width; j++)
-//		{
-//			printf("%d ", data->coordonates.y[i][j]);
-//		}
-//		printf("\n");
-//	}
-//}
-//
-//void print_x_coordinates(t_map *data)
-//{
-//	printf("X Coordinates:\n");
-//	for (int i = 0; i < data->height; i++)
-//	{
-//		for (int j = 0; j < data->width; j++)
-//		{
-//			printf("%d ", data->coordonates.x[i][j]);
-//		}
-//		printf("\n");
-//	}
-//}
-
 void init_data(t_fdf *fdf, const char *filename)
 {
 	int fd;
@@ -148,21 +137,19 @@ void init_data(t_fdf *fdf, const char *filename)
 	init_width(fd, fdf);
 	init_height(fd, fdf);
 	init_coordonates(fdf);
-//	print_x_coordinates(data);
-//	print_y_coordinates(data);
 	close(fd);
 	fd = open(filename, O_RDONLY);
 	if (fd < 0)
 		ft_error(FAILED_OPENING, fdf);
 	parse_map(fd, fdf);
+	print_coordinates(fdf);
 	close(fd);
 }
-
 
 void map_parsing(t_fdf *fdf)
 {
 	const char *file_name;
 
-	file_name = "../maps/test.fdf";
+	file_name = "../maps/42.fdf";
 	init_data(fdf, file_name);
 }
