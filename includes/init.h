@@ -27,8 +27,8 @@ typedef struct s_coordonates
 	int	**x;
 	int	**y;
 	int	**z;
-	int **destination_x;
-	int **destination_y;
+	float **destination_x;
+	float **destination_y;
 
 }	t_coordonates;
 

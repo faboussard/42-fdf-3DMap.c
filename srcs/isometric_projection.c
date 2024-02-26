@@ -28,29 +28,26 @@ void print_dest_coordinates(t_fdf *fdf)
 #include <stdio.h>
 #include <math.h>
 
-void my_pixel_put(t_fdf *fdf, int x, int y, int color)
+void my_pixel_put(t_fdf *fdf, float x, float y, int color)
 {
 	char *dst;
 	int offset;
-	int map_scale;
 
 	offset = (y * fdf->my_image.line_length + x * (fdf->my_image.bits_per_pixel / 8));
-//	map_scale = abs()
-	//ajouter le scale a y et x
 	dst = fdf->my_image.addr + abs(offset);
 	*(unsigned int *) dst = color; //on met le pixel a ladresse de dest
 }
 
 
-void draw_line(t_fdf *fdf, int x1, int y1, int x2, int y2)
+void draw_line(t_fdf *fdf, float x1, float y1, float x2, float y2)
 {
-	int i;
-	int step;
-	int dx;
-	int dy;
+	float i;
+	float step;
+	float dx;
+	float dy;
 
-	dx = abs(x2 - x1);
-	dy = abs(y2 - y1);
+	dx = fabsf(x2 - x1);
+	dy = fabsf(y2 - y1);
 	if (dx == 0 && dy == 0)
 		step = 1;
 	else
@@ -65,9 +62,9 @@ void draw_line(t_fdf *fdf, int x1, int y1, int x2, int y2)
 	i = 1;
 	while (i <= step)
 	{
-		x1 = x1 + dx;
-		y1 = y1 + dy;
-		my_pixel_put(fdf, x1, y1, 0x00FF0000); //renvoyer les pointeures
+		x1 += dx;
+		y1 += dy;
+		my_pixel_put(fdf, round(x1), round(y1), 0x00FF0000); //renvoyer les pointeures
 		i++;
 	}
 }
@@ -78,30 +75,46 @@ void create_lines(t_fdf *fdf)
 	int i;
 	int j;
 
+	// Tracer les lignes horizontales
 	i = 0;
 	while (i < fdf->my_map.height)
 	{
 		j = 0;
-		while (j < fdf->my_map.width)
+		while (j < fdf->my_map.width - 1) // Parcourir jusqu'à l'avant-dernier élément
 		{
-			if (j + 1 < fdf->my_map.width)
-			{
-				draw_line(fdf, fdf->my_map.coordonates.destination_x[i][j] + WIDTH,
-						  fdf->my_map.coordonates.destination_y[i][j] + HEIGHT,
-						  fdf->my_map.coordonates.destination_x[i][j + 1] + WIDTH,
-						  fdf->my_map.coordonates.destination_y[i][j + 1] + HEIGHT);
-			}
+			draw_line(fdf, fdf->my_map.coordonates.destination_x[i][j] + WIDTH,
+					  fdf->my_map.coordonates.destination_y[i][j] + HEIGHT,
+					  fdf->my_map.coordonates.destination_x[i][j + 1] + WIDTH,
+					  fdf->my_map.coordonates.destination_y[i][j + 1] + HEIGHT);
 			j++;
 		}
 		i++;
 	}
+
+//PB NE TRACENT PAS LES HORIZONTALES
+	j = 0;
+	while (j < fdf->my_map.width)
+	{
+		i = 0;
+		while (i < fdf->my_map.height - 1) // Parcourir jusqu'à l'avant-dernier élément
+		{
+			draw_line(fdf, fdf->my_map.coordonates.destination_x[i][j] + WIDTH,
+					  fdf->my_map.coordonates.destination_y[i][j] + HEIGHT,
+					  fdf->my_map.coordonates.destination_x[i + 1][j] + WIDTH,
+					  fdf->my_map.coordonates.destination_y[i + 1][j] + HEIGHT);
+			i++;
+		}
+		j++;
+	}
+
 	if (!mlx_put_image_to_window(fdf->my_libx.mlx, fdf->my_libx.win, fdf->my_image.img, 0, 0))
 		raise_error(NO_IMAGE, fdf);
 }
 
+
 double degree_to_radian()
 {
-	return (((30 * M_PI) / 120));
+	return (((20 * M_PI) / 120));
 }
 
 void isometric_projection(t_fdf *fdf)
@@ -127,9 +140,9 @@ void isometric_projection(t_fdf *fdf)
 			raise_error(FAILED_MALLOC, fdf);
 		while (j < fdf->my_map.width)
 		{
-			fdf->my_map.coordonates.destination_x[i][j] = (int)(((fdf->my_map.coordonates.x[i][j] - fdf->my_map.coordonates.y[i][j]) * cos(radian))) * resize2 * -1;
-			fdf->my_map.coordonates.destination_y[i][j] = (int)(((fdf->my_map.coordonates.x[i][j] + fdf->my_map.coordonates.y[i][j]) * sin(radian) -
-																  fdf->my_map.coordonates.z[i][j]) * resize2);
+			fdf->my_map.coordonates.destination_x[i][j] = (float)((fdf->my_map.coordonates.x[i][j] - ((fdf->my_map.coordonates.y[i][j]) * cos(radian)))) * resize2 * -1;
+			fdf->my_map.coordonates.destination_y[i][j] = (float)((((fdf->my_map.coordonates.x[i][j] + fdf->my_map.coordonates.y[i][j]) * sin(radian) -
+																  fdf->my_map.coordonates.z[i][j])) * resize2);
 			j++;
 		}
 		i++;
