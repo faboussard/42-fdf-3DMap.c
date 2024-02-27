@@ -82,6 +82,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/faboussa/fdf/includes/draw.h">
+			<Option target="fdf"/>
+		</Unit>
 		<Unit filename="/home/faboussa/fdf/includes/error_management.h">
 			<Option target="fdf"/>
 		</Unit>
@@ -362,6 +365,9 @@
 			<Option target="fdf"/>
 		</Unit>
 		<Unit filename="/home/faboussa/fdf/mlx_linux/mlx_xpm.c">
+			<Option target="fdf"/>
+		</Unit>
+		<Unit filename="/home/faboussa/fdf/srcs/draw.c">
 			<Option target="fdf"/>
 		</Unit>
 		<Unit filename="/home/faboussa/fdf/srcs/error_management.c">

@@ -2145,6 +2145,30 @@ mlx_linux/mlx_xpm.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/fdf.dir/build.make CMakeFiles/fdf.dir/mlx_linux/mlx_xpm.c.s
 .PHONY : mlx_linux/mlx_xpm.c.s
 
+srcs/draw.o: srcs/draw.c.o
+.PHONY : srcs/draw.o
+
+# target to build an object file
+srcs/draw.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fdf.dir/build.make CMakeFiles/fdf.dir/srcs/draw.c.o
+.PHONY : srcs/draw.c.o
+
+srcs/draw.i: srcs/draw.c.i
+.PHONY : srcs/draw.i
+
+# target to preprocess a source file
+srcs/draw.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fdf.dir/build.make CMakeFiles/fdf.dir/srcs/draw.c.i
+.PHONY : srcs/draw.c.i
+
+srcs/draw.s: srcs/draw.c.s
+.PHONY : srcs/draw.s
+
+# target to generate assembly for a file
+srcs/draw.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fdf.dir/build.make CMakeFiles/fdf.dir/srcs/draw.c.s
+.PHONY : srcs/draw.c.s
+
 srcs/error_management.o: srcs/error_management.c.o
 .PHONY : srcs/error_management.o
 
@@ -2550,6 +2574,9 @@ help:
 	@echo "... mlx_linux/mlx_xpm.o"
 	@echo "... mlx_linux/mlx_xpm.i"
 	@echo "... mlx_linux/mlx_xpm.s"
+	@echo "... srcs/draw.o"
+	@echo "... srcs/draw.i"
+	@echo "... srcs/draw.s"
 	@echo "... srcs/error_management.o"
 	@echo "... srcs/error_management.i"
 	@echo "... srcs/error_management.s"

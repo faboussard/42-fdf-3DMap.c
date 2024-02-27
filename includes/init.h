@@ -48,6 +48,8 @@ typedef struct s_fdf
 	t_libx	my_libx;
 } t_fdf;
 
-void	init(t_fdf *fdf);
+void	init_window(t_fdf *fdf);
+void	init_data(t_fdf *fdf, const char *filename);
+void allocate_arrays(t_fdf *fdf, int ***coordonates);
 
 #endif //FDF_INIT_H
