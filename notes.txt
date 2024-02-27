@@ -3,5 +3,6 @@ verifier la liberatin des structures et celles de libx
 pb : events.h : ferme a nimporte quel moment.
 
 PARSING OK ON RECUPERE BIEN Z
+TEST DES POINTS APRES LA FORMULES : ILS SONT BIEN AU BN EDNROIT
 
 CHERCHER DQNS MNULIBX TOUS LES MALLOC A LIBRER ET A VERIF A LA CREATION
