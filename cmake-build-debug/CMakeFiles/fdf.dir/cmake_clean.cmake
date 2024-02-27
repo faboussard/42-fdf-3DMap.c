@@ -167,6 +167,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/fdf.dir/mlx_linux/mlx_string_put.c.o.d"
   "CMakeFiles/fdf.dir/mlx_linux/mlx_xpm.c.o"
   "CMakeFiles/fdf.dir/mlx_linux/mlx_xpm.c.o.d"
+  "CMakeFiles/fdf.dir/srcs/draw.c.o"
+  "CMakeFiles/fdf.dir/srcs/draw.c.o.d"
   "CMakeFiles/fdf.dir/srcs/error_management.c.o"
   "CMakeFiles/fdf.dir/srcs/error_management.c.o.d"
   "CMakeFiles/fdf.dir/srcs/events.c.o"

@@ -58,8 +58,15 @@ void isometric_projection(t_fdf *fdf)
 	double	radian;
 	double	resize;
 
-	resize = fabsf((float) (fdf->my_map.height + fdf->my_map.height - fdf->my_map.width * sqrt(6)));
+	double maxSize = 10;
 	radian = degree_to_radian();
+//	resize = fabsf((float)((fdf->my_map.height + fdf->my_map.height - fdf->my_map.width) * sqrt(fdf->my_map.width * 5)));
+//
+//	// Vérifier si le resize dépasse la taille maximale
+//	if (resize > SIZE_Y) {
+//		resize = maxSize; // Réduire le resize à la taille maximale
+//	}
+resize = 0.2;
 	allocate_arrays(fdf, &fdf->my_map.coordonates.destination_x);
 	allocate_arrays(fdf, &fdf->my_map.coordonates.destination_y);
 	calculate_destination_x(fdf, radian, resize);

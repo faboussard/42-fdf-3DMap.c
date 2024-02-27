@@ -109,7 +109,8 @@ add_executable(fdf
         srcs/isometric_projection.c
         includes/isometric_transform.h
         includes/parsing.h
-        includes/draw.h)
+        includes/draw.h
+        srcs/draw.c)
 
 target_link_libraries(fdf m)
 target_link_libraries(fdf X11)

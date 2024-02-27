@@ -92,6 +92,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/faboussa/fdf/mlx_linux/mlx_set_font.c" "CMakeFiles/fdf.dir/mlx_linux/mlx_set_font.c.o" "gcc" "CMakeFiles/fdf.dir/mlx_linux/mlx_set_font.c.o.d"
   "/home/faboussa/fdf/mlx_linux/mlx_string_put.c" "CMakeFiles/fdf.dir/mlx_linux/mlx_string_put.c.o" "gcc" "CMakeFiles/fdf.dir/mlx_linux/mlx_string_put.c.o.d"
   "/home/faboussa/fdf/mlx_linux/mlx_xpm.c" "CMakeFiles/fdf.dir/mlx_linux/mlx_xpm.c.o" "gcc" "CMakeFiles/fdf.dir/mlx_linux/mlx_xpm.c.o.d"
+  "/home/faboussa/fdf/srcs/draw.c" "CMakeFiles/fdf.dir/srcs/draw.c.o" "gcc" "CMakeFiles/fdf.dir/srcs/draw.c.o.d"
   "/home/faboussa/fdf/srcs/error_management.c" "CMakeFiles/fdf.dir/srcs/error_management.c.o" "gcc" "CMakeFiles/fdf.dir/srcs/error_management.c.o.d"
   "/home/faboussa/fdf/srcs/events.c" "CMakeFiles/fdf.dir/srcs/events.c.o" "gcc" "CMakeFiles/fdf.dir/srcs/events.c.o.d"
   "/home/faboussa/fdf/srcs/init.c" "CMakeFiles/fdf.dir/srcs/init.c.o" "gcc" "CMakeFiles/fdf.dir/srcs/init.c.o.d"

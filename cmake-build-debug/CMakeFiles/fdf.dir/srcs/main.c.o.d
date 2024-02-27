@@ -62,9 +62,10 @@ CMakeFiles/fdf.dir/srcs/main.c.o: /home/faboussa/fdf/srcs/main.c \
   /usr/include/x86_64-linux-gnu/bits/stat.h \
   /home/faboussa/fdf/libft/inc/libft.h \
   /home/faboussa/fdf/srcs/../libft/inc/libft.h \
-  /home/faboussa/fdf/srcs/../includes/init.h \
-  /home/faboussa/fdf/includes/../includes/libx.h \
   /home/faboussa/fdf/srcs/../includes/events.h \
   /home/faboussa/fdf/includes/init.h \
+  /home/faboussa/fdf/includes/../includes/libx.h \
   /home/faboussa/fdf/includes/isometric_transform.h \
-  /home/faboussa/fdf/includes/parsing.h
+  /home/faboussa/fdf/includes/draw.h \
+  /home/faboussa/fdf/includes/../includes/init.h \
+  /home/faboussa/fdf/includes/error_management.h

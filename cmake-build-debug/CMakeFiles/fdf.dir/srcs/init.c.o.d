@@ -60,4 +60,7 @@ CMakeFiles/fdf.dir/srcs/init.c.o: /home/faboussa/fdf/srcs/init.c \
   /usr/include/x86_64-linux-gnu/bits/fcntl.h \
   /usr/include/x86_64-linux-gnu/bits/fcntl-linux.h \
   /usr/include/x86_64-linux-gnu/bits/stat.h \
-  /home/faboussa/fdf/libft/inc/libft.h
+  /home/faboussa/fdf/libft/inc/libft.h \
+  /home/faboussa/fdf/includes/parsing.h \
+  /home/faboussa/fdf/includes/error_management.h \
+  /home/faboussa/fdf/includes/../includes/init.h

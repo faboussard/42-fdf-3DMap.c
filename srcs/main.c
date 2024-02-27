@@ -15,7 +15,7 @@ int	main(void)
 		t_fdf fdf;
 	const char	*file_name;
 
-	file_name = "../maps/42.fdf";
+	file_name = "../maps/elem-fract.fdf";
 	init_window(&fdf);
 		ft_hook(&fdf);
 		mlx_hook(fdf.my_libx.win, 17, 0, close_hook, &fdf);
