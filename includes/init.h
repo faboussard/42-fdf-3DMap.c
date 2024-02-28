@@ -2,13 +2,12 @@
 #ifndef FDF_INIT_H
 #define FDF_INIT_H
 
-#define SIZE_X 1920
-#define SIZE_Y 1080
-#define WIDTH SIZE_X / 2
-#define HEIGHT SIZE_Y / 2
-
 #include <stddef.h>
 #include "../includes/libx.h"
+#include "init.h"
+
+#define WIDTH_DISPLAY 1920
+#define HEIGHT_DISPLAY 1080
 
 typedef struct s_libx
 {

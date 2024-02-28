@@ -1,4 +1,4 @@
-#include "../includes/isometric_transform.h"
+#include "../includes/isometric_projection.h"
 #include "libx.h"
 #include "error_management.h"
 #include <math.h>
@@ -6,11 +6,17 @@
 void my_pixel_put(t_fdf *fdf, int x, int y, int color)
 {
 	char *dst;
-	int offset;
+	int offset_x;
+	int	offset_y;
 
-	offset = (y * fdf->my_image.line_length + x * (fdf->my_image.bits_per_pixel / 8));
-	dst = fdf->my_image.addr + abs(offset);
-	*(unsigned int *) dst = color;
+
+		offset_x = x * (fdf->my_image.bits_per_pixel / 8);
+		offset_y = y * fdf->my_image.line_length;
+	if (x >= 0 && x < WIDTH_DISPLAY && y >= 0 && y < HEIGHT_DISPLAY)
+	{
+		dst = fdf->my_image.addr + abs(offset_x + offset_y);
+		*(unsigned int *) dst = color;
+	}
 }
 
 void draw_line(t_fdf *fdf, float x1, float y1, float x2, float y2)
@@ -37,33 +43,39 @@ void draw_line(t_fdf *fdf, float x1, float y1, float x2, float y2)
 
 void draw_y(t_fdf *fdf, int i)
 {
-	int j;
-
-	j = 0;
+	int j = 0;
 	while (j < fdf->my_map.height - 1)
 	{
-		draw_line(fdf, fdf->my_map.coordonates.destination_x[j][i] + WIDTH,
-				  fdf->my_map.coordonates.destination_y[j][i] + HEIGHT,
-				  fdf->my_map.coordonates.destination_x[j + 1][i] + WIDTH,
-				  fdf->my_map.coordonates.destination_y[j + 1][i] + HEIGHT);
+		// Calculer le décalage pour centrer la carte dans la fenêtre
+		int center_offset_x = WIDTH_DISPLAY / 2;
+		int center_offset_y = HEIGHT_DISPLAY / 2;
+
+		draw_line(fdf, fdf->my_map.coordonates.destination_x[j][i] + center_offset_x,
+				  fdf->my_map.coordonates.destination_y[j][i] + center_offset_y,
+				  fdf->my_map.coordonates.destination_x[j + 1][i] + center_offset_x,
+				  fdf->my_map.coordonates.destination_y[j + 1][i] + center_offset_y);
 		j++;
 	}
 }
 
 void draw_x(t_fdf *fdf, int i)
 {
-	int j;
-
-	j = 0;
+	int j = 0;
 	while (j < fdf->my_map.width - 1)
 	{
-		draw_line(fdf, fdf->my_map.coordonates.destination_x[i][j] + WIDTH,
-				  fdf->my_map.coordonates.destination_y[i][j] + HEIGHT,
-				  fdf->my_map.coordonates.destination_x[i][j + 1] + WIDTH,
-				  fdf->my_map.coordonates.destination_y[i][j + 1] + HEIGHT);
+		// Calculer le décalage pour centrer la carte dans la fenêtre
+		int center_offset_x = WIDTH_DISPLAY / 2;
+		int center_offset_y = HEIGHT_DISPLAY / 2;
+
+		// Dessiner la ligne en ajustant les coordonnées de destination pour centrer la carte
+		draw_line(fdf, fdf->my_map.coordonates.destination_x[i][j] + center_offset_x,
+				  fdf->my_map.coordonates.destination_y[i][j] + center_offset_y,
+				  fdf->my_map.coordonates.destination_x[i][j + 1] + center_offset_x,
+				  fdf->my_map.coordonates.destination_y[i][j + 1] + center_offset_y);
 		j++;
 	}
 }
+
 
 void create_lines(t_fdf *fdf)
 {

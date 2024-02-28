@@ -62,5 +62,6 @@ CMakeFiles/fdf.dir/srcs/parsing.c.o: /home/faboussa/fdf/srcs/parsing.c \
   /home/faboussa/fdf/libft/inc/libft.h \
   /home/faboussa/fdf/srcs/../includes/init.h \
   /home/faboussa/fdf/includes/../includes/libx.h \
+  /home/faboussa/fdf/includes/init.h \
   /home/faboussa/fdf/srcs/../includes/error_management.h \
   /home/faboussa/fdf/includes/../includes/init.h

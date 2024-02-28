@@ -12,26 +12,31 @@ void allocate_arrays(t_fdf *fdf, int ***coordonates)
 
 char **parse_line(int fd, t_fdf *fdf)
 {
-	char *line = get_next_line(fd);
+	char **split_lines;
+	char *line;
+
+	line = get_next_line(fd);
 	if (line == NULL)
 		raise_error(FAILED_MALLOC, fdf);
-	char **split_lines = ft_split(line, ' ');
+	split_lines = ft_split(line, ' ');
 	free(line);
 	if (split_lines == NULL)
 		raise_error(FAILED_MALLOC, fdf);
-	return split_lines;
+	return (split_lines);
 }
 
 int parse_value(char *str, t_fdf *fdf)
 {
+	int value;
+
 	if (str == NULL)
 	{
 		raise_error(WRONG_MAP, fdf);
-		return 0;
+		return (0);
 	}
-	int value = ft_atoi(str);
+	value = ft_atoi(str);
 	free(str);
-	return value;
+	return (value);
 }
 
 void parse_map(int fd, t_fdf *fdf)

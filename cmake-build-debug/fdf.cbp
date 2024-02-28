@@ -94,7 +94,7 @@
 		<Unit filename="/home/faboussa/fdf/includes/init.h">
 			<Option target="fdf"/>
 		</Unit>
-		<Unit filename="/home/faboussa/fdf/includes/isometric_transform.h">
+		<Unit filename="/home/faboussa/fdf/includes/isometric_projection.h">
 			<Option target="fdf"/>
 		</Unit>
 		<Unit filename="/home/faboussa/fdf/includes/libx.h">

@@ -8,7 +8,7 @@ void init_window(t_fdf *fdf)
 	fdf->my_libx.mlx = mlx_init();
 	if (fdf->my_libx.mlx == NULL)
 		exit(EXIT_FAILURE);
-	fdf->my_libx.win = mlx_new_window(fdf->my_libx.mlx, SIZE_X, SIZE_Y, "Fafa Fdf");
+	fdf->my_libx.win = mlx_new_window(fdf->my_libx.mlx, WIDTH_DISPLAY, HEIGHT_DISPLAY, "Fafa Fdf");
 	if (fdf->my_libx.win == NULL)
 		exit(EXIT_FAILURE);
 	fdf->my_image.img = mlx_new_image(fdf->my_libx.mlx, 1920, 1080);

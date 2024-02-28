@@ -65,7 +65,7 @@ CMakeFiles/fdf.dir/srcs/main.c.o: /home/faboussa/fdf/srcs/main.c \
   /home/faboussa/fdf/srcs/../includes/events.h \
   /home/faboussa/fdf/includes/init.h \
   /home/faboussa/fdf/includes/../includes/libx.h \
-  /home/faboussa/fdf/includes/isometric_transform.h \
+  /home/faboussa/fdf/includes/isometric_projection.h \
   /home/faboussa/fdf/includes/draw.h \
   /home/faboussa/fdf/includes/../includes/init.h \
   /home/faboussa/fdf/includes/error_management.h

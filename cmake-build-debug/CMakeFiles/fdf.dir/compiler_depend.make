@@ -5867,7 +5867,7 @@ CMakeFiles/fdf.dir/srcs/draw.c.o: /home/faboussa/fdf/srcs/draw.c \
   /home/faboussa/fdf/includes/libx.h \
   /home/faboussa/fdf/libft/inc/get_next_line.h \
   /home/faboussa/fdf/libft/inc/libft.h \
-  /home/faboussa/fdf/includes/isometric_transform.h \
+  /home/faboussa/fdf/includes/isometric_projection.h \
   /usr/include/alloca.h \
   /usr/include/endian.h \
   /usr/include/fcntl.h \
@@ -6101,6 +6101,7 @@ CMakeFiles/fdf.dir/srcs/init.c.o: /home/faboussa/fdf/srcs/init.c \
   /home/faboussa/fdf/libft/inc/libft.h \
   /home/faboussa/fdf/mlx_linux/mlx.h \
   /home/faboussa/fdf/includes/error_management.h \
+  /home/faboussa/fdf/includes/init.h \
   /home/faboussa/fdf/includes/parsing.h \
   /home/faboussa/fdf/libft/inc/get_next_line.h \
   /home/faboussa/fdf/libft/inc/libft.h \
@@ -6177,7 +6178,7 @@ CMakeFiles/fdf.dir/srcs/isometric_projection.c.o: /home/faboussa/fdf/srcs/isomet
   /home/faboussa/fdf/includes/libx.h \
   /home/faboussa/fdf/libft/inc/get_next_line.h \
   /home/faboussa/fdf/libft/inc/libft.h \
-  /home/faboussa/fdf/includes/isometric_transform.h \
+  /home/faboussa/fdf/includes/isometric_projection.h \
   /usr/include/alloca.h \
   /usr/include/endian.h \
   /usr/include/fcntl.h \
@@ -6256,7 +6257,7 @@ CMakeFiles/fdf.dir/srcs/main.c.o: /home/faboussa/fdf/srcs/main.c \
   /home/faboussa/fdf/includes/draw.h \
   /home/faboussa/fdf/includes/error_management.h \
   /home/faboussa/fdf/includes/init.h \
-  /home/faboussa/fdf/includes/isometric_transform.h \
+  /home/faboussa/fdf/includes/isometric_projection.h \
   /home/faboussa/fdf/libft/inc/get_next_line.h \
   /home/faboussa/fdf/libft/inc/libft.h \
   /home/faboussa/fdf/mlx_linux/mlx.h \
@@ -6330,6 +6331,7 @@ CMakeFiles/fdf.dir/srcs/parsing.c.o: /home/faboussa/fdf/srcs/parsing.c \
   /home/faboussa/fdf/includes/libx.h \
   /home/faboussa/fdf/libft/inc/libft.h \
   /home/faboussa/fdf/mlx_linux/mlx.h \
+  /home/faboussa/fdf/includes/init.h \
   /home/faboussa/fdf/libft/inc/get_next_line.h \
   /home/faboussa/fdf/libft/inc/libft.h \
   /home/faboussa/fdf/includes/error_management.h \
@@ -6422,7 +6424,7 @@ CMakeFiles/fdf.dir/srcs/parsing.c.o: /home/faboussa/fdf/srcs/parsing.c \
 
 /usr/include/math.h:
 
-/home/faboussa/fdf/includes/isometric_transform.h:
+/home/faboussa/fdf/includes/isometric_projection.h:
 
 /home/faboussa/fdf/includes/error_management.h:
 

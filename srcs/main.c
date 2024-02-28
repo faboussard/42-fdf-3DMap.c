@@ -3,7 +3,7 @@
 #include "../libft/inc/libft.h"
 #include "../includes/events.h"
 #include "init.h"
-#include "isometric_transform.h"
+#include "isometric_projection.h"
 #include "draw.h"
 #include "error_management.h"
 
@@ -15,7 +15,7 @@ int	main(void)
 		t_fdf fdf;
 	const char	*file_name;
 
-	file_name = "../maps/elem-fract.fdf";
+	file_name = "../maps/basictest.fdf";
 	init_window(&fdf);
 		ft_hook(&fdf);
 		mlx_hook(fdf.my_libx.win, 17, 0, close_hook, &fdf);
