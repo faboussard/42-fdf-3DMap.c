@@ -8,6 +8,9 @@ LIST_SRCS		=	main.c \
 					events.c\
 					parsing.c\
 					init.c\
+					error_management.c\
+					draw.c\
+					isometric_projection.c\
 
 # ------------ DIRECTORIES ------------ #
 
@@ -18,9 +21,9 @@ DIR_LIBFT		=	libft/
 
 # ------------- SHORTCUTS ------------- #
 
-OBJS			=	$(patsubst %.c, $(DIR_BUILD)%.o, $(SRCS))
-DEPS			=	$(patsubst %.c, $(DIR_BUILD)%.d, $(SRCS))
-SRCS			=	$(addprefix $(DIR_SRCS),$(LIST_SRCS))
+OBJS			=	$(patsubst %.c, $(DIR_BUILD)%.o, $(LIST_SRCS))
+DEPS			=	$(patsubst %.c, $(DIR_BUILD)%.d, $(LIST_SRCS))
+#SRCS			=	$(addprefix $(DIR_SRCS),$(LIST_SRCS))
 
 # ------------ COMPILATION ------------ #
 
@@ -39,6 +42,10 @@ OS				= $(shell uname -s)
 DIR_MLX		=	mlx_linux/
 MLX_FLAGS	=	-lXext -lX11 -lm
 
+#-------------  VPATH  ---------------#
+
+VPATH			=	$(DIR_SRCS):$(DIR_LIBFT):$(DIR_HEADERS)
+
 #***********************************  RULES  **********************************#
 
 .PHONY: all
@@ -46,7 +53,7 @@ all:			$(NAME)
 
 # ---------- VARIABLES RULES ---------- #
 
-$(NAME):		mlx libft  $(OBJS) #ajouter les includes normaux. jai ajoute -I (DIRLIBFT dessous)
+$(NAME):		mlx libft  $(OBJS)
 				$(CC) $(CFLAGS) -o $(NAME) $(OBJS) -I $(DIR_LIBFT) -L $(DIR_LIBFT) -lft -I $(DIR_MLX) -L $(DIR_MLX) -lmlx $(MLX_FLAGS)
 
 # ---------- COMPILED RULES ----------- #
@@ -59,15 +66,15 @@ $(DIR_BUILD)%.o: %.c
 
 .PHONY: mlx
 mlx:
-	            $(MAKE) -C $(DIR_MLX)
+	            		$(MAKE) -C $(DIR_MLX)
 
 .PHONY: libft
 libft:
-	            $(MAKE) -C $(DIR_LIBFT)
+	            		$(MAKE) -C $(DIR_LIBFT)
 
 .PHONY: debug
 debug:
-                $(MAKE) -g3
+				$(MAKE) -g3
 
 .PHONY: clean
 clean:

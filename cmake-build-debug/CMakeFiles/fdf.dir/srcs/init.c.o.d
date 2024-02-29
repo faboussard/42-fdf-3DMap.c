@@ -3,7 +3,7 @@ CMakeFiles/fdf.dir/srcs/init.c.o: \
   /sgoinfre/goinfre/Perso/faboussa/fdf/includes/init.h \
   /usr/lib/llvm-12/lib/clang/12.0.0/include/stddef.h \
   /usr/lib/llvm-12/lib/clang/12.0.0/include/__stddef_max_align_t.h \
-  /sgoinfre/goinfre/Perso/faboussa/fdf/libft/inc/libft.h \
+  /sgoinfre/goinfre/Perso/faboussa/fdf/includes/../libft/inc/libft.h \
   /usr/lib/llvm-12/lib/clang/12.0.0/include/limits.h \
   /usr/include/limits.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
@@ -59,6 +59,7 @@ CMakeFiles/fdf.dir/srcs/init.c.o: \
   /usr/include/fcntl.h /usr/include/x86_64-linux-gnu/bits/fcntl.h \
   /usr/include/x86_64-linux-gnu/bits/fcntl-linux.h \
   /usr/include/x86_64-linux-gnu/bits/stat.h \
+  /sgoinfre/goinfre/Perso/faboussa/fdf/libft/inc/libft.h \
   /sgoinfre/goinfre/Perso/faboussa/fdf/includes/parsing.h \
   /sgoinfre/goinfre/Perso/faboussa/fdf/includes/error_management.h \
   /sgoinfre/goinfre/Perso/faboussa/fdf/includes/../includes/init.h \

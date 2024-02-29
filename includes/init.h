@@ -3,7 +3,7 @@
 #define FDF_INIT_H
 
 #include <stddef.h>
-#include "libft.h"
+#include "../libft/inc/libft.h"
 
 #define WIDTH_DISPLAY 1920
 #define HEIGHT_DISPLAY 1080
@@ -29,7 +29,6 @@ typedef struct s_coordonates
 	int	**z;
 	float **destination_x;
 	float **destination_y;
-
 }	t_coordonates;
 
 typedef struct s_map
@@ -52,6 +51,9 @@ typedef struct s_fdf
 void	init_window(t_fdf *fdf);
 void	init_image(t_fdf *fdf);
 void	init_data(t_fdf *fdf, const char *filename);
-void allocate_arrays(t_fdf *fdf, int **coordonates, int size);
+void init_height(int fd, t_fdf *fdf);
+void init_width(int fd, t_fdf *fdf);
+void init_coordonates(t_fdf *fdf);
+void	allocate_arrays(t_fdf *fdf, int **coordonates, int size);
 
 #endif //FDF_INIT_H

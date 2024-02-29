@@ -29,26 +29,6 @@ void init_window(t_fdf *fdf)
 	init_image(fdf);
 }
 
-void init_data(t_fdf *fdf, const char *filename)
-{
-	int fd;
-
-	fd = open(filename, O_RDONLY);
-	if (fd < 0)
-		raise_error(FAILED_OPENING, fdf);
-	fdf->my_map.resize_factor_x = 20;
-	fdf->my_map.resize_factor_y = 20;
-	init_width(fd, fdf);
-	init_height(fd, fdf);
-	init_coordonates(fdf);
-	close(fd);
-	fd = open(filename, O_RDONLY);
-	if (fd < 0)
-		raise_error(FAILED_OPENING, fdf);
-	parse_map(fd, fdf);
-	close(fd);
-}
-
 void init_height(int fd, t_fdf *fdf)
 {
 	int i;
@@ -94,8 +74,8 @@ void init_coordonates(t_fdf *fdf)
 	int j;
 
 	i = 0;
-	allocate_arrays(fdf, &fdf->my_map.coordonates.x, fdf->my_map.height);
-	allocate_arrays(fdf, &fdf->my_map.coordonates.y, fdf->my_map.height);
+	allocate_arrays(fdf, (int **) &fdf->my_map.coordonates.x, fdf->my_map.height);
+	allocate_arrays(fdf, (int **) &fdf->my_map.coordonates.y, fdf->my_map.height);
 	while (i < fdf->my_map.height)
 	{
 		j = 0;

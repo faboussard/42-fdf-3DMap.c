@@ -61,4 +61,5 @@ CMakeFiles/fdf.dir/srcs/error_management.c.o: \
   /sgoinfre/goinfre/Perso/faboussa/fdf/libft/inc/libft.h \
   /sgoinfre/goinfre/Perso/faboussa/fdf/srcs/../includes/error_management.h \
   /sgoinfre/goinfre/Perso/faboussa/fdf/includes/../includes/init.h \
+  /sgoinfre/goinfre/Perso/faboussa/fdf/includes/../libft/inc/libft.h \
   /sgoinfre/goinfre/Perso/faboussa/fdf/mlx_linux/mlx.h

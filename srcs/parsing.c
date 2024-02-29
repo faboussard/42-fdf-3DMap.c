@@ -36,7 +36,7 @@ void parse_map(int fd, t_fdf *fdf)
 	int j;
 
 	i = 0;
-	allocate_arrays(fdf, &fdf->my_map.coordonates.z, fdf->my_map.height);
+	allocate_arrays(fdf, (int **) &fdf->my_map.coordonates.z, fdf->my_map.height);
 	while (i < fdf->my_map.height)
 	{
 		allocate_arrays(fdf, &fdf->my_map.coordonates.z[i], fdf->my_map.width);
@@ -50,6 +50,26 @@ void parse_map(int fd, t_fdf *fdf)
 		free(split_lines);
 		i++;
 	}
+}
+
+void init_data(t_fdf *fdf, const char *filename)
+{
+	int fd;
+
+	fd = open(filename, O_RDONLY);
+	if (fd < 0)
+		raise_error(FAILED_OPENING, fdf);
+	fdf->my_map.resize_factor_x = 20;
+	fdf->my_map.resize_factor_y = 20;
+	init_width(fd, fdf);
+	init_height(fd, fdf);
+	init_coordonates(fdf);
+	close(fd);
+	fd = open(filename, O_RDONLY);
+	if (fd < 0)
+		raise_error(FAILED_OPENING, fdf);
+	parse_map(fd, fdf);
+	close(fd);
 }
 
 

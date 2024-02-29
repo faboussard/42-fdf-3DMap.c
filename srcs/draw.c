@@ -1,6 +1,5 @@
-#include "../includes/isometric_projection.h"
+#include "isometric_projection.h"
 #include "mlx.h"
-#include "error_management.h"
 #include <math.h>
 
 void my_pixel_put(t_fdf *fdf, int x, int y, int color)

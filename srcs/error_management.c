@@ -2,11 +2,11 @@
 #include "../includes/error_management.h"
 #include "mlx.h"
 
-void	ft_free(int **tab, int j)
+void ft_free(int **tab, int j)
 {
 	if (tab == NULL)
 		return;
-	int	i;
+	int i;
 
 	i = 0;
 	while (i < j)
@@ -19,11 +19,14 @@ void	ft_free(int **tab, int j)
 
 void free_all(t_fdf *fdf)
 {
-	ft_free(fdf->my_map.coordonates.x, fdf->my_map.height);
-	ft_free(fdf->my_map.coordonates.y, fdf->my_map.height);
-	ft_free(fdf->my_map.coordonates.z, fdf->my_map.height);
-	ft_free(fdf->my_map.coordonates.destination_x, fdf->my_map.height);
-	ft_free(fdf->my_map.coordonates.destination_y, fdf->my_map.height);
+	if (fdf->my_map.coordonates.x)
+	{
+		ft_free(fdf->my_map.coordonates.x, fdf->my_map.height);
+		ft_free(fdf->my_map.coordonates.y, fdf->my_map.height);
+		ft_free(fdf->my_map.coordonates.z, fdf->my_map.height);
+		ft_free((int **) fdf->my_map.coordonates.destination_x, fdf->my_map.height);
+		ft_free((int **) fdf->my_map.coordonates.destination_y, fdf->my_map.height);
+	}
 	if (fdf->my_image.img)
 		mlx_destroy_image(fdf->my_libx.mlx, fdf->my_image.img);
 	if (fdf->my_libx.win)

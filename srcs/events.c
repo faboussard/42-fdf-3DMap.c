@@ -4,7 +4,6 @@
 #include <X11/keysym.h>
 #include "init.h"
 #include "draw.h"
-#include "isometric_projection.h"
 
 int key_hook(int keycode, t_fdf *fdf)
 {
