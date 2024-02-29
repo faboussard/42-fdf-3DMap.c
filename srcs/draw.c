@@ -11,8 +11,11 @@ void my_pixel_put(t_fdf *fdf, int x, int y, int color)
 
 	offset_x = x * (fdf->my_image.bits_per_pixel / 8) ;
 	offset_y = y * fdf->my_image.line_length;
-	dst = fdf->my_image.addr + abs(offset_x + offset_y);
-	*(unsigned int *) dst = color;
+	if (x >= 0 && x < WIDTH_DISPLAY && y >= 0 && y < HEIGHT_DISPLAY)
+	{
+		dst = fdf->my_image.addr + abs(offset_x + offset_y);
+		*(unsigned int *) dst = color;
+	}
 }
 
 void draw_line(t_fdf *fdf, float x1, float y1, float x2, float y2)
@@ -46,7 +49,7 @@ void draw_y(t_fdf *fdf, int i, int resize)
 	while (j < fdf->my_map.height - 1)
 	{
 		draw_line(fdf, fdf->my_map.coordonates.destination_x[j][i]  * resize,
-				  fdf->my_map.coordonates.destination_y[j][i]* resize,
+				  fdf->my_map.coordonates.destination_y[j][i] * resize,
 				  fdf->my_map.coordonates.destination_x[j + 1][i] *resize,
 				  fdf->my_map.coordonates.destination_y[j + 1][i] * resize);
 		j++;
@@ -68,27 +71,21 @@ void draw_x(t_fdf *fdf, int i, int resize)
 	}
 }
 
-
 void create_lines(t_fdf *fdf)
 {
 	int i;
-	int resize;
 
-	resize = (int)fmin(fdf->my_map.resize_factor_x, fdf->my_map.resize_factor_y);
-	if (resize == 0)
-		resize = 1;
 	i = 0;
 	while (i < fdf->my_map.height)
 	{
-		draw_x(fdf, i, resize);
+		draw_x(fdf, i, fdf->my_map.resize);
 		i++;
 	}
 	i = 0;
 	while (i < fdf->my_map.width)
 	{
-		draw_y(fdf, i, resize);
+		draw_y(fdf, i, fdf->my_map.resize);
 		i++;
 	}
-	if (!mlx_put_image_to_window(fdf->my_libx.mlx, fdf->my_libx.win, fdf->my_image.img, 0, 0))
-		raise_error(NO_IMAGE, fdf);
+	mlx_put_image_to_window(fdf->my_libx.mlx, fdf->my_libx.win, fdf->my_image.img, 0, 0);
 }

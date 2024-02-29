@@ -63,4 +63,6 @@ CMakeFiles/fdf.dir/srcs/events.c.o: \
   /usr/include/x86_64-linux-gnu/bits/stat.h \
   /sgoinfre/goinfre/Perso/faboussa/fdf/includes/error_management.h \
   /sgoinfre/goinfre/Perso/faboussa/fdf/includes/../includes/init.h \
-  /usr/include/X11/keysym.h /usr/include/X11/keysymdef.h
+  /usr/include/X11/keysym.h /usr/include/X11/keysymdef.h \
+  /sgoinfre/goinfre/Perso/faboussa/fdf/includes/draw.h \
+  /sgoinfre/goinfre/Perso/faboussa/fdf/includes/isometric_projection.h

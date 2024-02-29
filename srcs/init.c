@@ -3,6 +3,18 @@
 #include "error_management.h"
 #include "mlx.h"
 
+void init_image(t_fdf *fdf)
+{
+	fdf->my_image.img = mlx_new_image(fdf->my_libx.mlx, 1920, 1080);
+	if (fdf->my_image.img == NULL)
+	{
+		free_all(fdf);
+		exit(EXIT_FAILURE);
+	}
+	fdf->my_image.addr = mlx_get_data_addr(fdf->my_image.img, &fdf->my_image.bits_per_pixel, &fdf->my_image.line_length,
+										   &fdf->my_image.endian);
+}
+
 void init_window(t_fdf *fdf)
 {
 	fdf->my_libx.mlx = mlx_init();
@@ -14,14 +26,7 @@ void init_window(t_fdf *fdf)
 		free_all(fdf);
 		exit(EXIT_FAILURE);
 	}
-	fdf->my_image.img = mlx_new_image(fdf->my_libx.mlx, 1920, 1080);
-	if (fdf->my_image.img == NULL)
-	{
-		free_all(fdf);
-		exit(EXIT_FAILURE);
-	}
-	fdf->my_image.addr = mlx_get_data_addr(fdf->my_image.img, &fdf->my_image.bits_per_pixel, &fdf->my_image.line_length,
-								 &fdf->my_image.endian);
+	init_image(fdf);
 }
 
 void init_data(t_fdf *fdf, const char *filename)
@@ -31,6 +36,8 @@ void init_data(t_fdf *fdf, const char *filename)
 	fd = open(filename, O_RDONLY);
 	if (fd < 0)
 		raise_error(FAILED_OPENING, fdf);
+	fdf->my_map.resize_factor_x = 20;
+	fdf->my_map.resize_factor_y = 20;
 	init_width(fd, fdf);
 	init_height(fd, fdf);
 	init_coordonates(fdf);
@@ -55,7 +62,6 @@ void init_height(int fd, t_fdf *fdf)
 		line = get_next_line(fd);
 		i++;
 	}
-	free(line);
 	fdf->my_map.height = i;
 }
 

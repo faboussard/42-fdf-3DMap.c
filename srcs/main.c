@@ -13,9 +13,8 @@ int	main(void)
 
 //	if (argc != 2 || open(fd, )<0)
 	//raise_error(WRONG_ARGS, &fdf);
-
 	const char	*file_name;
-	file_name = "../maps/pnp_flat.fdf";
+	file_name = "../maps/elem2.fdf";
 
 		ft_bzero(&fdf, sizeof(fdf));
 		init_window(&fdf);
@@ -25,9 +24,5 @@ int	main(void)
 		isometric_projection(&fdf);
 		create_lines(&fdf);
 		mlx_loop(fdf.my_libx.mlx);
-//	}
-//	else
-//		ft_putendl_fd("Please add param : ./fdf *.fdf", 1);
-//	exit(EXIT_FAILURE);
 	return (0);
 }

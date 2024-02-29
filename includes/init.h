@@ -38,8 +38,7 @@ typedef struct s_map
 	int	width;
 	int resize_factor_x;
 	int resize_factor_y;
-	int top;
-	int bottom;
+	int resize;
 	t_coordonates coordonates;
 }	t_map;
 
@@ -51,6 +50,7 @@ typedef struct s_fdf
 } t_fdf;
 
 void	init_window(t_fdf *fdf);
+void	init_image(t_fdf *fdf);
 void	init_data(t_fdf *fdf, const char *filename);
 void allocate_arrays(t_fdf *fdf, int **coordonates, int size);
 

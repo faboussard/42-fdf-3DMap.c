@@ -3,6 +3,8 @@
 #include "error_management.h"
 #include <X11/keysym.h>
 #include "init.h"
+#include "draw.h"
+#include "isometric_projection.h"
 
 int key_hook(int keycode, t_fdf *fdf)
 {
@@ -11,15 +13,20 @@ int key_hook(int keycode, t_fdf *fdf)
 		free_all(fdf);
 		exit(EXIT_SUCCESS);
 	}
-	if (keycode == XK_KP_Space)
+	if (keycode == XK_space)
 	{
-		fdf->my_map.resize_factor_x --;
-		fdf->my_map.resize_factor_y --;
+		mlx_destroy_image(fdf->my_libx.mlx, fdf->my_image.img);
+		init_image(fdf);
+		fdf->my_map.resize++;
+		create_lines(fdf);
 	}
-	if (keycode == XK_KP_Enter)
+	if (keycode == XK_Return)
 	{
-		fdf->my_map.resize_factor_x --;
-		fdf->my_map.resize_factor_y--;
+		mlx_destroy_image(fdf->my_libx.mlx, fdf->my_image.img);
+		init_image(fdf);
+		fdf->my_map.resize--;
+		if (fdf->my_map.resize > 0)
+			create_lines(fdf);
 	}
 	return (0);
 }

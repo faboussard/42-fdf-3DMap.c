@@ -25,7 +25,7 @@ void free_all(t_fdf *fdf)
 	ft_free(fdf->my_map.coordonates.destination_x, fdf->my_map.height);
 	ft_free(fdf->my_map.coordonates.destination_y, fdf->my_map.height);
 	if (fdf->my_image.img)
-		free(fdf->my_image.img);
+		mlx_destroy_image(fdf->my_libx.mlx, fdf->my_image.img);
 	if (fdf->my_libx.win)
 		mlx_destroy_window(fdf->my_libx.mlx, fdf->my_libx.win);
 	if (fdf->my_libx.mlx)

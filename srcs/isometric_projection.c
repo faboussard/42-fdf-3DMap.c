@@ -66,11 +66,12 @@ void isometric_projection(t_fdf *fdf)
 	double radian;
 
 	radian = degree_to_radian();
-	fdf->my_map.resize_factor_x = 20;
-	fdf->my_map.resize_factor_y = 20;
 	allocate_arrays(fdf, &fdf->my_map.coordonates.destination_x, fdf->my_map.height);
 	allocate_arrays(fdf, &fdf->my_map.coordonates.destination_y, fdf->my_map.height);
 	calculate_destination_x(fdf, radian);
 	calculate_destination_y(fdf, radian);
+	fdf->my_map.resize = (int)fmin(fdf->my_map.resize_factor_x, fdf->my_map.resize_factor_y);
+	if (fdf->my_map.resize == 0)
+		fdf->my_map.resize = 1;
 }
 
