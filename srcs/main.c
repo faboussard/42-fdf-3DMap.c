@@ -5,7 +5,6 @@
 #include "draw.h"
 #include "error_management.h"
 
-
 int main(int argc, char **argv)
 {
 	t_fdf fdf;
@@ -22,5 +21,5 @@ int main(int argc, char **argv)
 	isometric_projection(&fdf);
 	create_lines(&fdf);
 	mlx_loop(fdf.my_libx.mlx);
-	return (0);
+	exit(EXIT_SUCCESS);
 }
