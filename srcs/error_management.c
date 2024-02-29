@@ -1,23 +1,6 @@
 #include "../libft/inc/libft.h"
 #include "../includes/error_management.h"
-#include "events.h"
-#include <stdio.h>
-
-void free_split(char **split)
-{
-	int	i;
-
-	i = 0;
-	if (split != NULL && *split != NULL)
-	{
-		while (split[i])
-		{
-			free(split[i]);
-			i++;
-		}
-		free(split);
-	}
-}
+#include "mlx.h"
 
 void	ft_free(int **tab, int j)
 {
@@ -41,13 +24,19 @@ void free_all(t_fdf *fdf)
 	ft_free(fdf->my_map.coordonates.z, fdf->my_map.height);
 	ft_free(fdf->my_map.coordonates.destination_x, fdf->my_map.height);
 	ft_free(fdf->my_map.coordonates.destination_y, fdf->my_map.height);
-//	free(fdf->my_image.img);
-//	free(fdf->my_libx.win);
-//	free(fdf->my_libx.mlx);
+	if (fdf->my_image.img)
+		free(fdf->my_image.img);
+	if (fdf->my_libx.win)
+		mlx_destroy_window(fdf->my_libx.mlx, fdf->my_libx.win);
+	if (fdf->my_libx.mlx)
+		mlx_destroy_display(fdf->my_libx.mlx);
+	free(fdf->my_libx.mlx);
 }
 
-void raise_error(enum e_error error_code, t_fdf *data)
+void raise_error(enum e_error error_code, t_fdf *fdf)
 {
+	if (error_code == WRONG_ARGS)
+		ft_putstr_fd("Wrong arguments entered. Exit\n", STDERR_FILENO);
 	if (error_code == FAILED_MALLOC)
 		ft_putstr_fd("malloc failed. Exit\n", STDERR_FILENO);
 	if (error_code == FAILED_OPENING)
@@ -56,8 +45,6 @@ void raise_error(enum e_error error_code, t_fdf *data)
 		ft_putstr_fd("data to parse does not form a square. Exit\n", STDERR_FILENO);
 	if (error_code == NO_IMAGE)
 		ft_putstr_fd("image could not be rendered. Exit.\n", STDERR_FILENO);
-	mlx_destroy_window(data->my_libx.mlx, data->my_libx.win);
-	mlx_destroy_display(data->my_libx.mlx);
-	free_all(data);
+	free_all(fdf);
 	exit(EXIT_FAILURE);
 }

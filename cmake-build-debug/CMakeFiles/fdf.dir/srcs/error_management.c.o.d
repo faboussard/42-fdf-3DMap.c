@@ -1,6 +1,6 @@
 CMakeFiles/fdf.dir/srcs/error_management.c.o: \
-  /home/faboussa/fdf/srcs/error_management.c \
-  /home/faboussa/fdf/srcs/../libft/inc/libft.h \
+  /sgoinfre/goinfre/Perso/faboussa/fdf/srcs/error_management.c \
+  /sgoinfre/goinfre/Perso/faboussa/fdf/srcs/../libft/inc/libft.h \
   /usr/lib/llvm-12/lib/clang/12.0.0/include/limits.h \
   /usr/include/limits.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
@@ -54,23 +54,11 @@ CMakeFiles/fdf.dir/srcs/error_management.c.o: \
   /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
   /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
   /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
-  /home/faboussa/fdf/libft/inc/get_next_line.h /usr/include/fcntl.h \
-  /usr/include/x86_64-linux-gnu/bits/fcntl.h \
+  /sgoinfre/goinfre/Perso/faboussa/fdf/libft/inc/get_next_line.h \
+  /usr/include/fcntl.h /usr/include/x86_64-linux-gnu/bits/fcntl.h \
   /usr/include/x86_64-linux-gnu/bits/fcntl-linux.h \
   /usr/include/x86_64-linux-gnu/bits/stat.h \
-  /home/faboussa/fdf/libft/inc/libft.h \
-  /home/faboussa/fdf/srcs/../includes/error_management.h \
-  /home/faboussa/fdf/includes/../includes/init.h \
-  /home/faboussa/fdf/includes/../includes/libx.h \
-  /home/faboussa/fdf/includes/../mlx_linux/mlx.h \
-  /home/faboussa/fdf/includes/../libft/inc/libft.h \
-  /home/faboussa/fdf/includes/init.h \
-  /home/faboussa/fdf/includes/events.h /usr/include/stdio.h \
-  /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
-  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
-  /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
-  /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
-  /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
-  /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
-  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
-  /usr/include/x86_64-linux-gnu/bits/sys_errlist.h
+  /sgoinfre/goinfre/Perso/faboussa/fdf/libft/inc/libft.h \
+  /sgoinfre/goinfre/Perso/faboussa/fdf/srcs/../includes/error_management.h \
+  /sgoinfre/goinfre/Perso/faboussa/fdf/includes/../includes/init.h \
+  /sgoinfre/goinfre/Perso/faboussa/fdf/mlx_linux/mlx.h

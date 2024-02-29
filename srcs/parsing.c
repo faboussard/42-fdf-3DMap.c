@@ -1,14 +1,5 @@
-#include <fcntl.h>
-#include "../includes/libx.h"
-#include "../includes/init.h"
-#include "../includes/error_management.h"
-
-void allocate_arrays(t_fdf *fdf, int ***coordonates)
-{
-	*coordonates = malloc(fdf->my_map.height * sizeof(int *));
-	if (*coordonates == NULL)
-		raise_error(FAILED_MALLOC, fdf);
-}
+#include "init.h"
+#include "error_management.h"
 
 char **parse_line(int fd, t_fdf *fdf)
 {
@@ -45,12 +36,10 @@ void parse_map(int fd, t_fdf *fdf)
 	int j;
 
 	i = 0;
-	allocate_arrays(fdf, &fdf->my_map.coordonates.z);
+	allocate_arrays(fdf, &fdf->my_map.coordonates.z, fdf->my_map.height);
 	while (i < fdf->my_map.height)
 	{
-		fdf->my_map.coordonates.z[i] = malloc(sizeof(int) * fdf->my_map.width);
-		if (fdf->my_map.coordonates.z[i] == NULL)
-			raise_error(FAILED_MALLOC, fdf);
+		allocate_arrays(fdf, &fdf->my_map.coordonates.z[i], fdf->my_map.width);
 		char **split_lines = parse_line(fd, fdf);
 		j = 0;
 		while (j < fdf->my_map.width)

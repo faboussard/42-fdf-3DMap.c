@@ -1,6 +1,7 @@
 CMakeFiles/fdf.dir/mlx_linux/mlx_clear_window.c.o: \
-  /home/faboussa/fdf/mlx_linux/mlx_clear_window.c \
-  /home/faboussa/fdf/mlx_linux/mlx_int.h /usr/include/stdlib.h \
+  /sgoinfre/goinfre/Perso/faboussa/fdf/mlx_linux/mlx_clear_window.c \
+  /sgoinfre/goinfre/Perso/faboussa/fdf/mlx_linux/mlx_int.h \
+  /usr/include/stdlib.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
   /usr/include/features.h /usr/include/stdc-predef.h \
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \

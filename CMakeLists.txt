@@ -9,7 +9,6 @@ include_directories(mlx_linux)
 
 add_executable(fdf
         includes/events.h
-        includes/libx.h
         includes/init.h
         libft/inc/get_next_line.h
         libft/inc/libft.h

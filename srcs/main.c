@@ -1,5 +1,4 @@
 #include <mlx.h>
-#include "../includes/libx.h"
 #include "../libft/inc/libft.h"
 #include "../includes/events.h"
 #include "init.h"
@@ -10,16 +9,19 @@
 
 int	main(void)
 {
-//	if (argc == 2)
-//	{
-		t_fdf fdf;
-	const char	*file_name;
+	t_fdf	fdf;
 
-	file_name = "../maps/basictest.fdf";
-	init_window(&fdf);
+//	if (argc != 2 || open(fd, )<0)
+	//raise_error(WRONG_ARGS, &fdf);
+
+	const char	*file_name;
+	file_name = "../maps/pnp_flat.fdf";
+
+		ft_bzero(&fdf, sizeof(fdf));
+		init_window(&fdf);
 		ft_hook(&fdf);
 		mlx_hook(fdf.my_libx.win, 17, 0, close_hook, &fdf);
-	init_data(&fdf, file_name);
+		init_data(&fdf, file_name);
 		isometric_projection(&fdf);
 		create_lines(&fdf);
 		mlx_loop(fdf.my_libx.mlx);

@@ -1,19 +1,25 @@
-#include "../includes/init.h"
+#include "init.h"
 #include "parsing.h"
 #include "error_management.h"
+#include "mlx.h"
 
 void init_window(t_fdf *fdf)
 {
-	ft_bzero(fdf, sizeof(*fdf));
 	fdf->my_libx.mlx = mlx_init();
 	if (fdf->my_libx.mlx == NULL)
 		exit(EXIT_FAILURE);
 	fdf->my_libx.win = mlx_new_window(fdf->my_libx.mlx, WIDTH_DISPLAY, HEIGHT_DISPLAY, "Fafa Fdf");
 	if (fdf->my_libx.win == NULL)
+	{
+		free_all(fdf);
 		exit(EXIT_FAILURE);
+	}
 	fdf->my_image.img = mlx_new_image(fdf->my_libx.mlx, 1920, 1080);
 	if (fdf->my_image.img == NULL)
+	{
+		free_all(fdf);
 		exit(EXIT_FAILURE);
+	}
 	fdf->my_image.addr = mlx_get_data_addr(fdf->my_image.img, &fdf->my_image.bits_per_pixel, &fdf->my_image.line_length,
 								 &fdf->my_image.endian);
 }
@@ -82,8 +88,8 @@ void init_coordonates(t_fdf *fdf)
 	int j;
 
 	i = 0;
-	allocate_arrays(fdf, &fdf->my_map.coordonates.x);
-	allocate_arrays(fdf, &fdf->my_map.coordonates.y);
+	allocate_arrays(fdf, &fdf->my_map.coordonates.x, fdf->my_map.height);
+	allocate_arrays(fdf, &fdf->my_map.coordonates.y, fdf->my_map.height);
 	while (i < fdf->my_map.height)
 	{
 		j = 0;

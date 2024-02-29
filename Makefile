@@ -24,7 +24,7 @@ SRCS			=	$(addprefix $(DIR_SRCS),$(LIST_SRCS))
 
 # ------------ COMPILATION ------------ #
 
-CFLAGS			=	-Wall -Wextra -Werror -g
+CFLAGS			=	-Wall -Wextra -Werror
 DEPS_FLAGS		=	-MMD -MP
 
 # -------------  COMMANDS ------------- #
@@ -46,8 +46,8 @@ all:			$(NAME)
 
 # ---------- VARIABLES RULES ---------- #
 
-$(NAME):		mlx libft $(OBJS)
-				$(CC) $(CFLAGS) -o $(NAME) $(OBJS) -L $(DIR_LIBFT) -lft -I $(DIR_MLX) -L $(DIR_MLX) -lmlx $(MLX_FLAGS)
+$(NAME):		mlx libft  $(OBJS) #ajouter les includes normaux. jai ajoute -I (DIRLIBFT dessous)
+				$(CC) $(CFLAGS) -o $(NAME) $(OBJS) -I $(DIR_LIBFT) -L $(DIR_LIBFT) -lft -I $(DIR_MLX) -L $(DIR_MLX) -lmlx $(MLX_FLAGS)
 
 # ---------- COMPILED RULES ----------- #
 
@@ -59,11 +59,15 @@ $(DIR_BUILD)%.o: %.c
 
 .PHONY: mlx
 mlx:
-	$(MAKE) -C $(DIR_MLX)
+	            $(MAKE) -C $(DIR_MLX)
 
 .PHONY: libft
 libft:
-	$(MAKE) -C $(DIR_LIBFT)
+	            $(MAKE) -C $(DIR_LIBFT)
+
+.PHONY: debug
+debug:
+                $(MAKE) -g3
 
 .PHONY: clean
 clean:

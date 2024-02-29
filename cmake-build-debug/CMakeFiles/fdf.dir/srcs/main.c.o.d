@@ -1,8 +1,7 @@
-CMakeFiles/fdf.dir/srcs/main.c.o: /home/faboussa/fdf/srcs/main.c \
-  /home/faboussa/fdf/mlx_linux/mlx.h \
-  /home/faboussa/fdf/srcs/../includes/libx.h \
-  /home/faboussa/fdf/includes/../mlx_linux/mlx.h \
-  /home/faboussa/fdf/includes/../libft/inc/libft.h \
+CMakeFiles/fdf.dir/srcs/main.c.o: \
+  /sgoinfre/goinfre/Perso/faboussa/fdf/srcs/main.c \
+  /sgoinfre/goinfre/Perso/faboussa/fdf/mlx_linux/mlx.h \
+  /sgoinfre/goinfre/Perso/faboussa/fdf/srcs/../libft/inc/libft.h \
   /usr/lib/llvm-12/lib/clang/12.0.0/include/limits.h \
   /usr/include/limits.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
@@ -56,16 +55,14 @@ CMakeFiles/fdf.dir/srcs/main.c.o: /home/faboussa/fdf/srcs/main.c \
   /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
   /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
   /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
-  /home/faboussa/fdf/libft/inc/get_next_line.h /usr/include/fcntl.h \
-  /usr/include/x86_64-linux-gnu/bits/fcntl.h \
+  /sgoinfre/goinfre/Perso/faboussa/fdf/libft/inc/get_next_line.h \
+  /usr/include/fcntl.h /usr/include/x86_64-linux-gnu/bits/fcntl.h \
   /usr/include/x86_64-linux-gnu/bits/fcntl-linux.h \
   /usr/include/x86_64-linux-gnu/bits/stat.h \
-  /home/faboussa/fdf/libft/inc/libft.h \
-  /home/faboussa/fdf/srcs/../libft/inc/libft.h \
-  /home/faboussa/fdf/srcs/../includes/events.h \
-  /home/faboussa/fdf/includes/init.h \
-  /home/faboussa/fdf/includes/../includes/libx.h \
-  /home/faboussa/fdf/includes/isometric_projection.h \
-  /home/faboussa/fdf/includes/draw.h \
-  /home/faboussa/fdf/includes/../includes/init.h \
-  /home/faboussa/fdf/includes/error_management.h
+  /sgoinfre/goinfre/Perso/faboussa/fdf/libft/inc/libft.h \
+  /sgoinfre/goinfre/Perso/faboussa/fdf/srcs/../includes/events.h \
+  /sgoinfre/goinfre/Perso/faboussa/fdf/includes/init.h \
+  /sgoinfre/goinfre/Perso/faboussa/fdf/includes/isometric_projection.h \
+  /sgoinfre/goinfre/Perso/faboussa/fdf/includes/draw.h \
+  /sgoinfre/goinfre/Perso/faboussa/fdf/includes/../includes/init.h \
+  /sgoinfre/goinfre/Perso/faboussa/fdf/includes/error_management.h
