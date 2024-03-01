@@ -51,12 +51,9 @@ char **parse_line(int fd, t_fdf *fdf)
 	if (line == NULL)
 		raise_error(FAILED_MALLOC, fdf, &fd);
 	split_lines = ft_split(line, ' ');
-	if (split_lines == NULL)
-	{
-		free(line);
-		raise_error(FAILED_MALLOC, fdf, &fd);
-	}
 	free(line);
+	if (split_lines == NULL)
+		raise_error(FAILED_MALLOC, fdf, &fd);
 	return (split_lines);
 }
 
@@ -65,18 +62,13 @@ void parse_map(int fd, t_fdf *fdf)
 	int		i;
 	int		j;
 	char	**split_lines;
-	char	*line;
 
 	i = 0;
 	allocate_arrays(fdf, (int **) &fdf->my_map.coordonates.z, fdf->my_map.height);
 	while (i < fdf->my_map.height)
 	{
 		allocate_arrays(fdf, &fdf->my_map.coordonates.z[i], fdf->my_map.width);
-		line = get_next_line(fd);
-		if (line == NULL)
-			raise_error(FAILED_MALLOC, fdf, &fd);
-		split_lines = ft_split(line, ' ');
-		free(line);
+		split_lines = parse_line(fd, fdf);
 		if (split_lines == NULL)
 			raise_error(FAILED_MALLOC, fdf, &fd);
 		j = 0;
@@ -107,6 +99,4 @@ void init_data(t_fdf *fdf, const char *filename)
 	parse_map(fd, fdf);
 	close(fd);
 }
-
-
 

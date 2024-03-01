@@ -1,3 +1,2 @@
 norminer
 revoir makefile
-pour le resize factor le definir sur height/ map height
