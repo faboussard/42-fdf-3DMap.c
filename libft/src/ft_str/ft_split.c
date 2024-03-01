@@ -74,7 +74,7 @@ char	**ft_split(char const *s, char c)
 
 	if (s == NULL)
 		return (NULL);
-	split = ft_calloc(count_letters(s, c) + 1, sizeof(char **));
+	split = malloc(sizeof(char **) * (count_letters(s, c) + 1));
 	if (split == NULL)
 		return (NULL);
 	split = fill_array_with_strings(split, s, c);

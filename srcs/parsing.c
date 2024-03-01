@@ -88,7 +88,6 @@ void parse_map(int fd, t_fdf *fdf)
 		ft_free_strs_array(split_lines, j);
 		i++;
 	}
-	//on doit librer splitline de lauter fonction aussi. et on doit iben liberer tout splitline.
 }
 
 void init_data(t_fdf *fdf, const char *filename)

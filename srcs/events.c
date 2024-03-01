@@ -23,9 +23,9 @@ int key_hook(int keycode, t_fdf *fdf)
 	{
 		mlx_destroy_image(fdf->my_libx.mlx, fdf->my_image.img);
 		init_image(fdf);
-		fdf->my_map.resize--;
-		if (fdf->my_map.resize > 0)
-			create_lines(fdf);
+		if (fdf->my_map.resize > 1)
+			fdf->my_map.resize--;
+		create_lines(fdf);
 	}
 	return (0);
 }
