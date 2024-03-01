@@ -1,8 +1,22 @@
-#include "../libft/inc/libft.h"
-#include "../includes/error_management.h"
+#include "init.h"
+#include "error_management.h"
 #include "mlx.h"
 
-void ft_free(int **tab, int j)
+ void	*ft_free_strs_array(char **strs_array, size_t start)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < start)
+	{
+		free(strs_array[i]);
+		i++;
+	}
+	free(strs_array);
+	return (NULL);
+}
+
+void ft_free_tab(int **tab, int j)
 {
 	if (tab == NULL)
 		return;
@@ -20,13 +34,15 @@ void ft_free(int **tab, int j)
 void free_all(t_fdf *fdf)
 {
 	if (fdf->my_map.coordonates.x)
-	{
-		ft_free(fdf->my_map.coordonates.x, fdf->my_map.height);
-		ft_free(fdf->my_map.coordonates.y, fdf->my_map.height);
-		ft_free(fdf->my_map.coordonates.z, fdf->my_map.height);
-		ft_free((int **) fdf->my_map.coordonates.destination_x, fdf->my_map.height);
-		ft_free((int **) fdf->my_map.coordonates.destination_y, fdf->my_map.height);
-	}
+		ft_free_tab(fdf->my_map.coordonates.x, fdf->my_map.height);
+	if (fdf->my_map.coordonates.y)
+		ft_free_tab(fdf->my_map.coordonates.y, fdf->my_map.height);
+	if (fdf->my_map.coordonates.z)
+		ft_free_tab(fdf->my_map.coordonates.z, fdf->my_map.height);
+	if (fdf->my_map.coordonates.destination_x)
+		ft_free_tab((int **) fdf->my_map.coordonates.destination_x, fdf->my_map.height);
+	if (fdf->my_map.coordonates.destination_y)
+		ft_free_tab((int **) fdf->my_map.coordonates.destination_y, fdf->my_map.height);
 	if (fdf->my_image.img)
 		mlx_destroy_image(fdf->my_libx.mlx, fdf->my_image.img);
 	if (fdf->my_libx.win)
@@ -36,8 +52,12 @@ void free_all(t_fdf *fdf)
 	free(fdf->my_libx.mlx);
 }
 
-void raise_error(enum e_error error_code, t_fdf *fdf)
+void raise_error(enum e_error error_code, t_fdf *fdf, int *fd)
 {
+	if (fd)
+		close(*fd);
+	if (error_code == WRONG_DATA_IN_MAP)
+		ft_putstr_fd("data to parse is not a number. Exit.\n", STDERR_FILENO);
 	if (error_code == WRONG_ARGS)
 		ft_putstr_fd("Wrong arguments entered. Exit\n", STDERR_FILENO);
 	if (error_code == FAILED_MALLOC)

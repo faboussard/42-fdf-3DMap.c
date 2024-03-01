@@ -35,7 +35,7 @@ void draw_line(t_fdf *fdf, float x1, float y1, float x2, float y2)
 	{
 		x1 += dx;
 		y1 += dy;
-		my_pixel_put(fdf, x1 + WIDTH_DISPLAY / 2, y1 + HEIGHT_DISPLAY / 2, 0x00FF0000);
+		my_pixel_put(fdf, x1 + WIDTH_DISPLAY / 2, y1 + HEIGHT_DISPLAY / 3, 0x00FF0000);
 	}
 }
 

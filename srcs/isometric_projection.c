@@ -56,9 +56,12 @@ void calculate_destination_y(t_fdf *fdf, double radian)
 
 void allocate_arrays(t_fdf *fdf, int **coordonates, int size)
 {
-	*coordonates = malloc(size * sizeof(int *));
-	if (*coordonates == NULL)
-		raise_error(FAILED_MALLOC, fdf);
+	if (coordonates)
+	{
+		*coordonates = malloc(size * sizeof(int *));
+		if (*coordonates == NULL)
+			raise_error(FAILED_MALLOC, fdf, 0);
+	}
 }
 
 void isometric_projection(t_fdf *fdf)

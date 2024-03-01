@@ -29,45 +29,6 @@ void init_window(t_fdf *fdf)
 	init_image(fdf);
 }
 
-void init_height(int fd, t_fdf *fdf)
-{
-	int i;
-	char *line;
-
-	line = get_next_line(fd);
-	i = 1;
-	while (line != NULL)
-	{
-		free(line);
-		line = get_next_line(fd);
-		i++;
-	}
-	fdf->my_map.height = i;
-}
-
-void init_width(int fd, t_fdf *fdf)
-{
-	int i;
-	char *line;
-	char **split_lines;
-
-	line = get_next_line(fd);
-	if (line == NULL)
-		raise_error(FAILED_MALLOC, fdf);
-	i = 0;
-	split_lines = ft_split(line, ' ');
-	free(line);
-	if (split_lines == NULL)
-		raise_error(FAILED_MALLOC, fdf);
-	while (split_lines[i] != NULL)
-	{
-		free(split_lines[i]);
-		i++;
-	}
-	fdf->my_map.width = i;
-	free(split_lines);
-}
-
 void init_coordonates(t_fdf *fdf)
 {
 	int i;
@@ -82,7 +43,7 @@ void init_coordonates(t_fdf *fdf)
 		fdf->my_map.coordonates.x[i] = malloc(sizeof(int) * fdf->my_map.width);
 		fdf->my_map.coordonates.y[i] = malloc(sizeof(int) * fdf->my_map.width);
 		if (fdf->my_map.coordonates.x[i] == NULL || fdf->my_map.coordonates.y[i] == NULL)
-			raise_error(FAILED_MALLOC, fdf);
+			raise_error(FAILED_MALLOC, fdf, 0);
 		while (j < fdf->my_map.width)
 		{
 			fdf->my_map.coordonates.y[i][j] = j;
