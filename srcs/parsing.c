@@ -65,21 +65,23 @@ void parse_map(int fd, t_fdf *fdf)
 	int		i;
 	int		j;
 	char	**split_lines;
+	char	*line;
 
 	i = 0;
 	allocate_arrays(fdf, (int **) &fdf->my_map.coordonates.z, fdf->my_map.height);
 	while (i < fdf->my_map.height)
 	{
 		allocate_arrays(fdf, &fdf->my_map.coordonates.z[i], fdf->my_map.width);
-		split_lines = parse_line(fd, fdf);
+		line = get_next_line(fd);
+		if (line == NULL)
+			raise_error(FAILED_MALLOC, fdf, &fd);
+		split_lines = ft_split(line, ' ');
+		free(line);
+		if (split_lines == NULL)
+			raise_error(FAILED_MALLOC, fdf, &fd);
 		j = 0;
 		while (j < fdf->my_map.width)
 		{
-			if (!ft_isdigit(*split_lines[j]))
-			{
-				ft_free_strs_array(split_lines, j);
-				raise_error(WRONG_DATA_IN_MAP, fdf, &fd);
-			}
 			fdf->my_map.coordonates.z[i][j] = ft_atoi(split_lines[j]);
 			j++;
 		}
@@ -87,8 +89,6 @@ void parse_map(int fd, t_fdf *fdf)
 		i++;
 	}
 	//on doit librer splitline de lauter fonction aussi. et on doit iben liberer tout splitline.
-	//pb si plein despaces a la fin et que ya un m cest ignore.  verifier la height. em fait il devrait quit direct en disant qu c pas la bonne taille.
-	ft_free_strs_array(split_lines, j);
 }
 
 void init_data(t_fdf *fdf, const char *filename)
@@ -98,8 +98,6 @@ void init_data(t_fdf *fdf, const char *filename)
 	fd = open(filename, O_RDONLY);
 	if (fd < 0)
 		raise_error(FAILED_OPENING, fdf, 0);
-	fdf->my_map.resize_factor_x = 20;
-	fdf->my_map.resize_factor_y = 20;
 	init_width(fd, fdf);
 	init_height(fd, fdf);
 	init_coordonates(fdf);

@@ -61,6 +61,7 @@ void allocate_arrays(t_fdf *fdf, int **coordonates, int size)
 		*coordonates = malloc(size * sizeof(int *));
 		if (*coordonates == NULL)
 			raise_error(FAILED_MALLOC, fdf, 0);
+		ft_bzero(*coordonates, sizeof(coordonates));
 	}
 }
 

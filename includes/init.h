@@ -48,6 +48,7 @@ typedef struct s_fdf
 	t_libx	my_libx;
 } t_fdf;
 
+void init_resize(t_fdf *fdf);
 void	init_window(t_fdf *fdf);
 void	init_image(t_fdf *fdf);
 void	init_data(t_fdf *fdf, const char *filename);

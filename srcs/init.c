@@ -53,3 +53,9 @@ void init_coordonates(t_fdf *fdf)
 		i++;
 	}
 }
+
+void init_resize(t_fdf *fdf)
+{
+	fdf->my_map.resize_factor_x = 20;
+	fdf->my_map.resize_factor_y = 20;
+}
