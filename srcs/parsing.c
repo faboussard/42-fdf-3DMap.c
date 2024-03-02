@@ -1,15 +1,27 @@
-#include "init.h"
-#include "error_management.h"
-#include "../libft/inc/libft.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parsing.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: faboussa  <faboussa@student.42lyon.f>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/02 09:55:00 by faboussa          #+#    #+#             */
+/*   Updated: 2024/03/02 15:32:39 by faboussa         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void init_height(int fd, t_fdf *fdf)
+#include "../libft/inc/libft.h"
+#include "error_management.h"
+#include "init.h"
+
+void	init_height(int fd, t_fdf *fdf)
 {
-	int i;
-	char *line;
+	int		i;
+	char	*line;
 
 	line = get_next_line(fd);
 	i = 1;
-	while (line != NULL && line[0] != '\n' )
+	while (line != NULL && line[0] != '\n')
 	{
 		free(line);
 		line = get_next_line(fd);
@@ -20,7 +32,7 @@ void init_height(int fd, t_fdf *fdf)
 	fdf->my_map.height = i;
 }
 
-void init_width(int fd, t_fdf *fdf)
+void	init_width(int fd, t_fdf *fdf)
 {
 	int		i;
 	char	*line;
@@ -43,10 +55,10 @@ void init_width(int fd, t_fdf *fdf)
 	fdf->my_map.width = i;
 }
 
-char **parse_line(int fd, t_fdf *fdf)
+char	**parse_line(int fd, t_fdf *fdf)
 {
-	char **split_lines;
-	char *line;
+	char	**split_lines;
+	char	*line;
 
 	line = get_next_line(fd);
 	if (line == NULL)
@@ -58,14 +70,15 @@ char **parse_line(int fd, t_fdf *fdf)
 	return (split_lines);
 }
 
-void parse_map(int fd, t_fdf *fdf)
+void	parse_map(int fd, t_fdf *fdf)
 {
 	int		i;
 	int		j;
 	char	**split_lines;
 
 	i = 0;
-	allocate_arrays(fdf, (int **) &fdf->my_map.coordonates.z, fdf->my_map.height);
+	allocate_arrays(fdf, (int **)&fdf->my_map.coordonates.z,
+			fdf->my_map.height);
 	while (i < fdf->my_map.height)
 	{
 		allocate_arrays(fdf, &fdf->my_map.coordonates.z[i], fdf->my_map.width);
@@ -83,9 +96,9 @@ void parse_map(int fd, t_fdf *fdf)
 	}
 }
 
-void init_data(t_fdf *fdf, const char *filename)
+void	init_data(t_fdf *fdf, const char *filename)
 {
-	int fd;
+	int	fd;
 
 	fd = open(filename, O_RDONLY);
 	if (fd < 0)
@@ -100,4 +113,3 @@ void init_data(t_fdf *fdf, const char *filename)
 	parse_map(fd, fdf);
 	close(fd);
 }
-

@@ -1,11 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   error_management.h                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: faboussa  <faboussa@student.42lyon.f>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/02 09:55:00 by faboussa          #+#    #+#             */
+/*   Updated: 2024/03/02 15:33:25 by faboussa         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#ifndef FDF_ERROR_MANAGEMENT_H
-#define FDF_ERROR_MANAGEMENT_H
+#ifndef ERROR_MANAGEMENT_H
+# define ERROR_MANAGEMENT_H
 
-#include <stddef.h>
-#include "init.h"
+# include "init.h"
+# include <stddef.h>
 
-enum e_error{
+enum	e_error
+{
 	WRONG_DATA_IN_MAP,
 	EMPTY_MAP,
 	WRONG_ARGS,
@@ -15,9 +27,9 @@ enum e_error{
 	NO_IMAGE,
 };
 
-void raise_error(enum e_error error_code, t_fdf *fdf, int *fd);
-void *ft_free_strs_array(char **strs_array, size_t start);
-void ft_free_tab(int **tab, int j);
-void free_all(t_fdf *fdf);
+void	raise_error(enum e_error error_code, t_fdf *fdf, int *fd);
+void	*ft_free_strs_array(char **strs_array, size_t start);
+void	ft_free_tab(int **tab, int j);
+void	free_all(t_fdf *fdf);
 
-#endif //FDF_ERROR_MANAGEMENT_H
+#endif //ERROR_MANAGEMENT_H

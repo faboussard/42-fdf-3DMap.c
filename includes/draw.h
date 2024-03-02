@@ -1,7 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   draw.h                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: faboussa  <faboussa@student.42lyon.f>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/02 09:55:00 by faboussa          #+#    #+#             */
+/*   Updated: 2024/03/02 15:33:25 by faboussa         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#ifndef FDF_DRAW_H
-#define FDF_DRAW_H
+#ifndef DRAW_H
+# define DRAW_H
 
-void create_lines(t_fdf *fdf);
+void	create_lines(t_fdf *fdf);
 
-#endif //FDF_DRAW_H
+#endif //DRAW_H

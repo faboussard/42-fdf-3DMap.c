@@ -1,18 +1,30 @@
-#include "mlx.h"
-#include "events.h"
-#include "error_management.h"
-#include <X11/keysym.h>
-#include "init.h"
-#include "draw.h"
-#include "../libft/inc/libft.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   events.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: faboussa  <faboussa@student.42lyon.f>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/02 09:55:00 by faboussa          #+#    #+#             */
+/*   Updated: 2024/03/02 15:32:39 by faboussa         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void destroy_and_recreate_img(t_fdf *fdf)
+#include "../libft/inc/libft.h"
+#include "draw.h"
+#include "error_management.h"
+#include "events.h"
+#include "init.h"
+#include "mlx.h"
+#include <X11/keysym.h>
+
+void	destroy_and_recreate_img(t_fdf *fdf)
 {
 	mlx_destroy_image(fdf->my_libx.mlx, fdf->my_image.img);
 	init_image(fdf);
 }
 
-int key_hook(int keycode, t_fdf *fdf)
+int	key_hook(int keycode, t_fdf *fdf)
 {
 	if (keycode == XK_Escape)
 	{
@@ -41,7 +53,7 @@ int	close_hook(t_fdf *fdf)
 	exit(EXIT_SUCCESS);
 }
 
-void ft_hook(t_fdf *fdf)
+void	ft_hook(t_fdf *fdf)
 {
 	mlx_hook(fdf->my_libx.win, ON_KEYDOWN, KEY_PRESS, key_hook, fdf);
 }

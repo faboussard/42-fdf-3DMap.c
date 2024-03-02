@@ -1,12 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   error_management.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: faboussa  <faboussa@student.42lyon.f>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/02 09:55:00 by faboussa          #+#    #+#             */
+/*   Updated: 2024/03/02 15:32:39 by faboussa         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../libft/inc/libft.h"
-#include "init.h"
 #include "error_management.h"
+#include "init.h"
+#include "mlx.h"
 #include <stddef.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include "mlx.h"
 
- void	*ft_free_strs_array(char **strs_array, size_t start)
+void	*ft_free_strs_array(char **strs_array, size_t start)
 {
 	size_t	i;
 
@@ -20,12 +32,12 @@
 	return (NULL);
 }
 
-void ft_free_tab(int **tab, int j)
+void	ft_free_tab(int **tab, int j)
 {
-	if (tab == NULL)
-		return;
-	int i;
+	int	i;
 
+	if (tab == NULL)
+		return ;
 	i = 0;
 	while (i < j)
 	{
@@ -35,7 +47,7 @@ void ft_free_tab(int **tab, int j)
 	free(tab);
 }
 
-void free_all(t_fdf *fdf)
+void	free_all(t_fdf *fdf)
 {
 	if (fdf->my_map.coordonates.x)
 		ft_free_tab(fdf->my_map.coordonates.x, fdf->my_map.height);
@@ -44,9 +56,11 @@ void free_all(t_fdf *fdf)
 	if (fdf->my_map.coordonates.z)
 		ft_free_tab(fdf->my_map.coordonates.z, fdf->my_map.height);
 	if (fdf->my_map.coordonates.destination_x)
-		ft_free_tab((int **) fdf->my_map.coordonates.destination_x, fdf->my_map.height);
+		ft_free_tab((int **)fdf->my_map.coordonates.destination_x,
+			fdf->my_map.height);
 	if (fdf->my_map.coordonates.destination_y)
-		ft_free_tab((int **) fdf->my_map.coordonates.destination_y, fdf->my_map.height);
+		ft_free_tab((int **)fdf->my_map.coordonates.destination_y,
+			fdf->my_map.height);
 	if (fdf->my_image.img)
 		mlx_destroy_image(fdf->my_libx.mlx, fdf->my_image.img);
 	if (fdf->my_libx.win)
@@ -56,7 +70,7 @@ void free_all(t_fdf *fdf)
 	free(fdf->my_libx.mlx);
 }
 
-void raise_error(enum e_error error_code, t_fdf *fdf, int *fd)
+void	raise_error(enum e_error error_code, t_fdf *fdf, int *fd)
 {
 	if (fd)
 		close(*fd);
@@ -69,9 +83,11 @@ void raise_error(enum e_error error_code, t_fdf *fdf, int *fd)
 	if (error_code == FAILED_MALLOC)
 		ft_putstr_fd("malloc failed. empty data. Exit\n", STDERR_FILENO);
 	if (error_code == FAILED_OPENING)
-		ft_putstr_fd("file could not open. Check name and properties. Exit\n", STDERR_FILENO);
+		ft_putstr_fd("file could not open. Check name and properties. Exit\n",
+			STDERR_FILENO);
 	if (error_code == WRONG_MAP)
-		ft_putstr_fd("data to parse does not form a square. Exit\n", STDERR_FILENO);
+		ft_putstr_fd("data to parse does not form a square. Exit\n",
+			STDERR_FILENO);
 	if (error_code == NO_IMAGE)
 		ft_putstr_fd("image could not be rendered. Exit.\n", STDERR_FILENO);
 	free_all(fdf);

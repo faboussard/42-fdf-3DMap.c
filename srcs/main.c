@@ -1,16 +1,28 @@
-#include <mlx.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: faboussa  <faboussa@student.42lyon.f>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/02 09:55:00 by faboussa          #+#    #+#             */
+/*   Updated: 2024/03/02 15:32:39 by faboussa         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../libft/inc/libft.h"
+#include "draw.h"
+#include "error_management.h"
 #include "events.h"
 #include "init.h"
 #include "isometric_projection.h"
-#include "draw.h"
-#include "error_management.h"
-#include "../libft/inc/libft.h"
+#include <mlx.h>
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	t_fdf       fdf;
-	int         fd;
-	const char  *file_name;
+	t_fdf		fdf;
+	int			fd;
+	const char	*file_name;
 
 	file_name = argv[1];
 	fd = open(file_name, O_RDONLY);
