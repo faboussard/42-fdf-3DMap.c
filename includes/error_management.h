@@ -2,10 +2,12 @@
 #ifndef FDF_ERROR_MANAGEMENT_H
 #define FDF_ERROR_MANAGEMENT_H
 
-#include "../includes/init.h"
+#include <stddef.h>
+#include "init.h"
 
 enum e_error{
 	WRONG_DATA_IN_MAP,
+	EMPTY_MAP,
 	WRONG_ARGS,
 	FAILED_MALLOC,
 	FAILED_OPENING,

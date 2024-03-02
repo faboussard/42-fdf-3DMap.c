@@ -1,6 +1,7 @@
-#include "isometric_projection.h"
 #include "mlx.h"
 #include <math.h>
+#include "init.h"
+#include "../libft/inc/libft.h"
 
 void my_pixel_put(t_fdf *fdf, int x, int y, int color)
 {
@@ -12,7 +13,7 @@ void my_pixel_put(t_fdf *fdf, int x, int y, int color)
 	offset_y = y * fdf->my_image.line_length;
 	if (x >= 0 && x < WIDTH_DISPLAY && y >= 0 && y < HEIGHT_DISPLAY)
 	{
-		dst = fdf->my_image.addr + abs(offset_x + offset_y);
+		dst = fdf->my_image.addr + ft_abs(offset_x + offset_y);
 		*(unsigned int *) dst = color;
 	}
 }
@@ -35,7 +36,7 @@ void draw_line(t_fdf *fdf, float x1, float y1, float x2, float y2)
 	{
 		x1 += dx;
 		y1 += dy;
-		my_pixel_put(fdf, x1 + WIDTH_DISPLAY / 2, y1 + HEIGHT_DISPLAY / 3, 0x00FF0000);
+		my_pixel_put(fdf, x1 + WIDTH_DISPLAY / 2.5, y1 + HEIGHT_DISPLAY / 3, 0x00FF0000);
 	}
 }
 

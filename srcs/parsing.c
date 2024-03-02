@@ -1,5 +1,6 @@
 #include "init.h"
 #include "error_management.h"
+#include "../libft/inc/libft.h"
 
 void init_height(int fd, t_fdf *fdf)
 {

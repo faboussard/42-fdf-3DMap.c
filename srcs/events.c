@@ -4,6 +4,7 @@
 #include <X11/keysym.h>
 #include "init.h"
 #include "draw.h"
+#include "../libft/inc/libft.h"
 
 void destroy_and_recreate_img(t_fdf *fdf)
 {

@@ -27,7 +27,7 @@ DEPS			=	$(patsubst %.c, $(DIR_BUILD)%.d, $(LIST_SRCS))
 
 # ------------ COMPILATION ------------ #
 
-CFLAGS			=	-Wall -Wextra -Werror
+CFLAGS			=	-Wall -Wextra -Werror -g3
 DEPS_FLAGS		=	-MMD -MP
 
 # -------------  COMMANDS ------------- #

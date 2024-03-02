@@ -1,12 +1,7 @@
-#include "isometric_projection.h"
 #include "init.h"
 #include "error_management.h"
 #include <math.h>
-
-double degree_to_radian()
-{
-	return (((20 * M_PI) / 120));
-}
+#include "../libft/inc/libft.h"
 
 void calculate_destination_x(t_fdf *fdf, double radian)
 {
@@ -69,7 +64,7 @@ void isometric_projection(t_fdf *fdf)
 {
 	double radian;
 
-	radian = degree_to_radian();
+	radian = 20 * M_PI / 120;
 	allocate_arrays(fdf, (int **) &fdf->my_map.coordonates.destination_x, fdf->my_map.height);
 	allocate_arrays(fdf, (int **) &fdf->my_map.coordonates.destination_y, fdf->my_map.height);
 	calculate_destination_x(fdf, radian);

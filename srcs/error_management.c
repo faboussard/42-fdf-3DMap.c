@@ -1,5 +1,9 @@
+#include "../libft/inc/libft.h"
 #include "init.h"
 #include "error_management.h"
+#include <stddef.h>
+#include <stdlib.h>
+#include <unistd.h>
 #include "mlx.h"
 
  void	*ft_free_strs_array(char **strs_array, size_t start)
@@ -56,12 +60,14 @@ void raise_error(enum e_error error_code, t_fdf *fdf, int *fd)
 {
 	if (fd)
 		close(*fd);
+	if (error_code == EMPTY_MAP)
+		ft_putstr_fd("data to parse is not a number. Exit.\n", STDERR_FILENO);
 	if (error_code == WRONG_DATA_IN_MAP)
 		ft_putstr_fd("data to parse is not a number. Exit.\n", STDERR_FILENO);
 	if (error_code == WRONG_ARGS)
 		ft_putstr_fd("Wrong arguments entered. Exit\n", STDERR_FILENO);
 	if (error_code == FAILED_MALLOC)
-		ft_putstr_fd("malloc failed. Exit\n", STDERR_FILENO);
+		ft_putstr_fd("malloc failed. empty data. Exit\n", STDERR_FILENO);
 	if (error_code == FAILED_OPENING)
 		ft_putstr_fd("file could not open. Check name and properties. Exit\n", STDERR_FILENO);
 	if (error_code == WRONG_MAP)
