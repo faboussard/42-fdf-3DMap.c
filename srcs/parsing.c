@@ -51,7 +51,7 @@ void	init_width(int fd, t_fdf *fdf)
 	free(line);
 	while (split_lines[i] != NULL)
 		i++;
-	ft_free_strs_array(split_lines, i);
+	ft_free_tab((void **) split_lines, i);
 	fdf->my_map.width = i;
 }
 
@@ -91,7 +91,8 @@ void	parse_map(int fd, t_fdf *fdf)
 			fdf->my_map.coordonates.z[i][j] = ft_atoi(split_lines[j]);
 			j++;
 		}
-		ft_free_strs_array(split_lines, j);
+		j = 0;
+		ft_free_split(split_lines);
 		i++;
 	}
 }

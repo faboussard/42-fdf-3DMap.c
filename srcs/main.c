@@ -12,7 +12,6 @@
 
 #include "../libft/inc/libft.h"
 #include "draw.h"
-#include "error_management.h"
 #include "events.h"
 #include "init.h"
 #include "isometric_projection.h"
@@ -28,7 +27,7 @@ int	main(int argc, char **argv)
 	fd = open(file_name, O_RDONLY);
 	if (argc != 2 || fd < 0)
 	{
-		ft_putstr_fd("Wrong map. Exit.\n", STDERR_FILENO);
+		ft_putstr_fd("Map doest not exist. Exit.\n", STDERR_FILENO);
 		exit(EXIT_FAILURE);
 	}
 	ft_bzero(&fdf, sizeof(fdf));

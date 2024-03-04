@@ -18,18 +18,14 @@
 
 enum	e_error
 {
-	WRONG_DATA_IN_MAP,
-	EMPTY_MAP,
-	WRONG_ARGS,
 	FAILED_MALLOC,
 	FAILED_OPENING,
-	WRONG_MAP,
 	NO_IMAGE,
 };
 
 void	raise_error(enum e_error error_code, t_fdf *fdf, int *fd);
-void	*ft_free_strs_array(char **strs_array, size_t start);
-void	ft_free_tab(int **tab, int j);
+void	ft_free_split(char **tab);
+void	ft_free_tab(void **tab, int j);
 void	free_all(t_fdf *fdf);
 
 #endif //ERROR_MANAGEMENT_H

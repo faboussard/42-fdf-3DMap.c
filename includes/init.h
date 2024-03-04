@@ -55,6 +55,12 @@ typedef struct s_fdf
 	t_map			my_map;
 	t_image			my_image;
 	t_libx			my_libx;
+	float			step_line;
+	float			step_col;
+	float			dx_line;
+	float			dy_line;
+	float			dx_col;
+	float			dy_col;
 }					t_fdf;
 
 void				init_project(t_fdf *fdf);

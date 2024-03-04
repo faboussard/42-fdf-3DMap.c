@@ -13,9 +13,8 @@
 #ifndef PARSING_H
 # define PARSING_H
 
-void	init_coordonates(t_fdf *fdf);
-void	init_width(int fd, t_fdf *fdf);
-void	init_height(int fd, t_fdf *fdf);
+# include "init.h"
+
 void	parse_map(int fd, t_fdf *fdf);
 
 #endif //PARSING_H

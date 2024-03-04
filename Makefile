@@ -72,10 +72,6 @@ mlx:
 libft:
 	            		$(MAKE) -C $(DIR_LIBFT)
 
-.PHONY: debug
-debug:
-				$(MAKE) -g3
-
 .PHONY: clean
 clean:
 				$(MAKE) -C $(DIR_LIBFT) clean
@@ -88,5 +84,5 @@ fclean: clean
 				$(RM) $(NAME)
 
 .PHONY: re
-re:				fclean
+re:				fclean all
 				$(MAKE) -C ./

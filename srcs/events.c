@@ -15,13 +15,16 @@
 #include "error_management.h"
 #include "events.h"
 #include "init.h"
+#include "isometric_projection.h"
 #include "mlx.h"
 #include <X11/keysym.h>
 
 void	destroy_and_recreate_img(t_fdf *fdf)
 {
+	ft_resize(fdf);
 	mlx_destroy_image(fdf->my_libx.mlx, fdf->my_image.img);
 	init_image(fdf);
+	create_lines(fdf);
 }
 
 int	key_hook(int keycode, t_fdf *fdf)
@@ -33,16 +36,21 @@ int	key_hook(int keycode, t_fdf *fdf)
 	}
 	if (keycode == XK_space)
 	{
-		destroy_and_recreate_img(fdf);
-		fdf->my_map.resize++;
-		create_lines(fdf);
+		if (fdf->my_map.resize < 50)
+		{
+			reverse_resize(fdf);
+			fdf->my_map.resize++;
+			destroy_and_recreate_img(fdf);
+		}
 	}
 	if (keycode == XK_Return)
 	{
-		destroy_and_recreate_img(fdf);
 		if (fdf->my_map.resize > 1)
+		{
+			reverse_resize(fdf);
 			fdf->my_map.resize--;
-		create_lines(fdf);
+			destroy_and_recreate_img(fdf);
+		}
 	}
 	return (0);
 }

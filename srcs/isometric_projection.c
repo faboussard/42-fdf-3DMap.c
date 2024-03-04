@@ -10,10 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/inc/libft.h"
-#include "error_management.h"
 #include "init.h"
 #include <math.h>
+#include "isometric_projection.h"
 
 void	calculate_destination_x(t_fdf *fdf, double radian)
 {
@@ -69,17 +68,6 @@ void	calculate_destination_y(t_fdf *fdf, double radian)
 	}
 }
 
-void	allocate_arrays(t_fdf *fdf, int **coordonates, int size)
-{
-	if (coordonates)
-	{
-		*coordonates = malloc(size * sizeof(int *));
-		if (*coordonates == NULL)
-			raise_error(FAILED_MALLOC, fdf, 0);
-		ft_bzero(*coordonates, sizeof(coordonates));
-	}
-}
-
 void	isometric_projection(t_fdf *fdf)
 {
 	double	radian;
@@ -95,4 +83,43 @@ void	isometric_projection(t_fdf *fdf)
 			fdf->my_map.resize_factor_y);
 	if (fdf->my_map.resize == 0)
 		fdf->my_map.resize = 1;
+	ft_resize(fdf);
+}
+
+void	ft_resize(t_fdf *fdf)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < fdf->my_map.height)
+	{
+		j = 0;
+		while (j < fdf->my_map.width)
+		{
+			fdf->my_map.coordonates.destination_x[i][j] *= fdf->my_map.resize;
+			fdf->my_map.coordonates.destination_y[i][j] *= fdf->my_map.resize;
+			j++;
+		}
+		i++;
+	}
+}
+
+void	reverse_resize(t_fdf *fdf)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < fdf->my_map.height)
+	{
+		j = 0;
+		while (j < fdf->my_map.width)
+		{
+			fdf->my_map.coordonates.destination_x[i][j] /= fdf->my_map.resize;
+			fdf->my_map.coordonates.destination_y[i][j] /= fdf->my_map.resize;
+			j++;
+		}
+		i++;
+	}
 }

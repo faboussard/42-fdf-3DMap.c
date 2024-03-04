@@ -14,5 +14,7 @@
 # define ISOMETRIC_PROJECTION_H
 
 void	isometric_projection(t_fdf *fdf);
+void	ft_resize(t_fdf *fdf);
+void	reverse_resize(t_fdf *fdf);
 
 #endif //ISOMETRIC_PROJECTION_H

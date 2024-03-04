@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/fanny/fdf/cmake-build-debug"
+			"value" : "/home/juba/fdf/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -115,7 +115,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/snap/clion/265/bin/cmake/linux/x64/bin/cmake"
+			"value" : "/snap/clion/263/bin/cmake/linux/x64/bin/cmake"
 		},
 		{
 			"name" : "CMAKE_CPACK_COMMAND",
@@ -127,7 +127,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/snap/clion/265/bin/cmake/linux/x64/bin/cpack"
+			"value" : "/snap/clion/263/bin/cmake/linux/x64/bin/cpack"
 		},
 		{
 			"name" : "CMAKE_CTEST_COMMAND",
@@ -139,7 +139,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/snap/clion/265/bin/cmake/linux/x64/bin/ctest"
+			"value" : "/snap/clion/263/bin/cmake/linux/x64/bin/ctest"
 		},
 		{
 			"name" : "CMAKE_C_COMPILER",
@@ -415,7 +415,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/fanny/fdf/cmake-build-debug/CMakeFiles/pkgRedirects"
+			"value" : "/home/juba/fdf/cmake-build-debug/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -475,7 +475,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/fanny/fdf"
+			"value" : "/home/juba/fdf"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -527,7 +527,7 @@
 				}
 			],
 			"type" : "UNINITIALIZED",
-			"value" : "/snap/clion/265/bin/ninja/linux/x64/ninja"
+			"value" : "/snap/clion/263/bin/ninja/linux/x64/ninja"
 		},
 		{
 			"name" : "CMAKE_MODULE_LINKER_FLAGS",
@@ -759,7 +759,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/snap/clion/265/bin/cmake/linux/x64/share/cmake-3.27"
+			"value" : "/snap/clion/263/bin/cmake/linux/x64/share/cmake-3.27"
 		},
 		{
 			"name" : "CMAKE_SHARED_LINKER_FLAGS",
@@ -1035,7 +1035,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/fanny/fdf/cmake-build-debug"
+			"value" : "/home/juba/fdf/cmake-build-debug"
 		},
 		{
 			"name" : "fdf_IS_TOP_LEVEL",
@@ -1059,7 +1059,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/fanny/fdf"
+			"value" : "/home/juba/fdf"
 		}
 	],
 	"kind" : "cache",

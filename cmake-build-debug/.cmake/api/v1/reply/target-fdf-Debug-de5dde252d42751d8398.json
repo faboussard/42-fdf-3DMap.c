@@ -86,15 +86,15 @@
 			[
 				{
 					"backtrace" : 6,
-					"path" : "/home/fanny/fdf/includes"
+					"path" : "/home/juba/fdf/includes"
 				},
 				{
 					"backtrace" : 7,
-					"path" : "/home/fanny/fdf/libft/inc"
+					"path" : "/home/juba/fdf/libft/inc"
 				},
 				{
 					"backtrace" : 8,
-					"path" : "/home/fanny/fdf/mlx_linux"
+					"path" : "/home/juba/fdf/mlx_linux"
 				}
 			],
 			"language" : "C",

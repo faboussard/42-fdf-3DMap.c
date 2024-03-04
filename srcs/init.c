@@ -14,8 +14,13 @@
 #include "error_management.h"
 #include "init.h"
 #include "mlx.h"
-#include "parsing.h"
 #include <stddef.h>
+
+void	init_project(t_fdf *fdf)
+{
+	fdf->my_map.resize_factor_x = 20;
+	fdf->my_map.resize_factor_y = 20;
+}
 
 void	init_image(t_fdf *fdf)
 {
@@ -73,8 +78,13 @@ void	init_coordonates(t_fdf *fdf)
 	}
 }
 
-void	init_project(t_fdf *fdf)
+void	allocate_arrays(t_fdf *fdf, int **coordonates, int size)
 {
-	fdf->my_map.resize_factor_x = 20;
-	fdf->my_map.resize_factor_y = 20;
+	if (coordonates)
+	{
+		*coordonates = malloc(size * sizeof(int *));
+		if (*coordonates == NULL)
+			raise_error(FAILED_MALLOC, fdf, 0);
+		ft_bzero(*coordonates, sizeof(coordonates));
+	}
 }
