@@ -23,7 +23,6 @@ DIR_LIBFT		=	libft/
 
 OBJS			=	$(patsubst %.c, $(DIR_BUILD)%.o, $(LIST_SRCS))
 DEPS			=	$(patsubst %.c, $(DIR_BUILD)%.d, $(LIST_SRCS))
-#SRCS			=	$(addprefix $(DIR_SRCS),$(LIST_SRCS))
 
 # ------------ COMPILATION ------------ #
 
@@ -53,7 +52,7 @@ all:			$(NAME)
 
 # ---------- VARIABLES RULES ---------- #
 
-$(NAME):		mlx libft  $(OBJS)
+$(NAME):		mlx libft  $(OBJS) $(LIBFT_A)
 				$(CC) $(CFLAGS) -o $(NAME) $(OBJS) -I $(DIR_LIBFT) -L $(DIR_LIBFT) -lft -I $(DIR_MLX) -L $(DIR_MLX) -lmlx $(MLX_FLAGS)
 
 # ---------- COMPILED RULES ----------- #
