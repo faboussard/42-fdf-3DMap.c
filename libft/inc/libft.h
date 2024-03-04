@@ -13,13 +13,12 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include "get_next_line.h"
 # include <limits.h>
 # include <stdarg.h>
 # include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h>
-
-# include "get_next_line.h"
 
 # define BASE16_MIN "0123456789abcdef"
 # define BASE10 "0123456789"
@@ -64,9 +63,10 @@ void					*ft_memchr(const void *s, int c, size_t n);
 int						ft_memcmp(void *s1, const void *s2, size_t n);
 char					*ft_strnstr(const char *big, const char *little,
 							size_t len);
-char	                *ft_substr(const char *s1, unsigned int start, size_t len);
-char	                *ft_substr_gnl(char const *s, size_t total_len, unsigned int start,
-                        size_t len);
+char					*ft_substr(const char *s1, unsigned int start,
+							size_t len);
+char					*ft_substr_gnl(char const *s, size_t total_len,
+							unsigned int start, size_t len);
 char					*ft_strjoin(char const *s1, char const *s2);
 int						ft_strcmp(char *s1, char *s2);
 char					*ft_strtrim(char const *s1, char const *set);

@@ -1,14 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   draw.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: faboussa  <faboussa@student.42lyon.f>      +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/02 09:55:00 by faboussa          #+#    #+#             */
-/*   Updated: 2024/03/02 15:32:39 by faboussa         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include "../libft/inc/libft.h"
 #include "init.h"
@@ -49,7 +38,7 @@ void	draw_line(t_fdf *fdf, float x1, float y1, float x2, float y2)
 		x1 += dx;
 		y1 += dy;
 		my_pixel_put(fdf, x1 + WIDTH_DISPLAY / 2.5, y1 + HEIGHT_DISPLAY / 3,
-				0x00FF0000);
+		             0x00FF0000);
 	}
 }
 
@@ -61,9 +50,9 @@ void	draw_y(t_fdf *fdf, int i, int resize)
 	while (j < fdf->my_map.height - 1)
 	{
 		draw_line(fdf, fdf->my_map.coordonates.destination_x[j][i] * resize,
-				fdf->my_map.coordonates.destination_y[j][i] * resize,
-				fdf->my_map.coordonates.destination_x[j + 1][i] * resize,
-				fdf->my_map.coordonates.destination_y[j + 1][i] * resize);
+		          fdf->my_map.coordonates.destination_y[j][i] * resize,
+		          fdf->my_map.coordonates.destination_x[j + 1][i] * resize,
+		          fdf->my_map.coordonates.destination_y[j + 1][i] * resize);
 		j++;
 	}
 }
@@ -76,9 +65,9 @@ void	draw_x(t_fdf *fdf, int i, int resize)
 	while (j < fdf->my_map.width - 1)
 	{
 		draw_line(fdf, fdf->my_map.coordonates.destination_x[i][j] * resize,
-				fdf->my_map.coordonates.destination_y[i][j] * resize,
-				fdf->my_map.coordonates.destination_x[i][j + 1] * resize,
-				fdf->my_map.coordonates.destination_y[i][j + 1] * resize);
+		          fdf->my_map.coordonates.destination_y[i][j] * resize,
+		          fdf->my_map.coordonates.destination_x[i][j + 1] * resize,
+		          fdf->my_map.coordonates.destination_y[i][j + 1] * resize);
 		j++;
 	}
 }
@@ -100,5 +89,5 @@ void	create_lines(t_fdf *fdf)
 		i++;
 	}
 	mlx_put_image_to_window(fdf->my_libx.mlx, fdf->my_libx.win,
-			fdf->my_image.img, 0, 0);
+	                        fdf->my_image.img, 0, 0);
 }

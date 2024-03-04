@@ -13,6 +13,8 @@
 #ifndef DRAW_H
 # define DRAW_H
 
+#include "init.h"
+
 void	create_lines(t_fdf *fdf);
 
 #endif //DRAW_H

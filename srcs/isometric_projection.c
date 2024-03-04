@@ -28,13 +28,13 @@ void	calculate_destination_x(t_fdf *fdf, double radian)
 			fdf->my_map.width);
 		while (j < fdf->my_map.width)
 		{
-			fdf->my_map.coordonates.destination_x[i][j] = (float)
-				((fdf->my_map.coordonates.x[i][j]
+			fdf->my_map.coordonates.destination_x[i][j]
+				= (float)((fdf->my_map.coordonates.x[i][j]
 						- ((fdf->my_map.coordonates.y[i][j]) * cos(radian)))
-					* -1);
+					*-1);
 			while (fabsf(fdf->my_map.resize_factor_x
 					* fdf->my_map.coordonates.destination_x[i][j])
-					>= WIDTH_DISPLAY / 2)
+				>= WIDTH_DISPLAY / 2)
 				fdf->my_map.resize_factor_x--;
 			j++;
 		}
@@ -55,13 +55,13 @@ void	calculate_destination_y(t_fdf *fdf, double radian)
 			fdf->my_map.width);
 		while (j < fdf->my_map.width)
 		{
-			fdf->my_map.coordonates.destination_y[i][j] = (float)
-				((((fdf->my_map.coordonates.x[i][j]
-						+ fdf->my_map.coordonates.y[i][j]) * sin(radian)
-					- fdf->my_map.coordonates.z[i][j])));
+			fdf->my_map.coordonates.destination_y[i][j]
+				= (float)((((fdf->my_map.coordonates.x[i][j]
+								+ fdf->my_map.coordonates.y[i][j]) * sin(radian)
+							- fdf->my_map.coordonates.z[i][j])));
 			while (fabsf(fdf->my_map.resize_factor_y
 					* fdf->my_map.coordonates.destination_y[i][j]) >=
-				HEIGHT_DISPLAY / 3)
+					HEIGHT_DISPLAY / 3)
 				fdf->my_map.resize_factor_y--;
 			j++;
 		}

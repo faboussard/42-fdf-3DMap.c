@@ -78,7 +78,7 @@ void	parse_map(int fd, t_fdf *fdf)
 
 	i = 0;
 	allocate_arrays(fdf, (int **)&fdf->my_map.coordonates.z,
-			fdf->my_map.height);
+		fdf->my_map.height);
 	while (i < fdf->my_map.height)
 	{
 		allocate_arrays(fdf, &fdf->my_map.coordonates.z[i], fdf->my_map.width);
