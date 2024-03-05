@@ -4,25 +4,40 @@ NAME			=	fdf
 
 # --------------- FILES --------------- #
 
-LIST_SRCS		=	main.c \
-					events.c\
-					parsing.c\
-					init.c\
-					error_management.c\
-					draw.c\
-					isometric_projection.c\
+#-------------  VPATH  ---------------#
+
+vpath %c srcs
+
+
+LIST_SRCS		=	main\
+					events\
+					parsing\
+					init\
+					error_management\
+					draw\
+					isometric_projection
+
+LIST_HEADERS	=	events\
+					parsing\
+					init\
+					error_management\
+					draw\
+					isometric_projection
 
 # ------------ DIRECTORIES ------------ #
 
 DIR_BUILD		=	.build/
-DIR_SRCS 		= 	srcs/
 DIR_HEADERS		=	includes/
 DIR_LIBFT		=	libft/
+libft = $(DIR_LIBFT)libft.a
+mlx = $(DIR_MLX)libmlx.a
 
 # ------------- SHORTCUTS ------------- #
 
-OBJS			=	$(patsubst %.c, $(DIR_BUILD)%.o, $(LIST_SRCS))
-DEPS			=	$(patsubst %.c, $(DIR_BUILD)%.d, $(LIST_SRCS))
+OBJS            = $(addprefix $(DIR_BUILD), $(addsuffix .o, $(LIST_SRCS)))
+HEADERS		= $(addprefix $(DIR_HEADERS), $(addsuffix .h, $(LIST_HEADERS)))	
+DEPS            = ${OBJS:.o=.d}
+INCLUDES        = -I $(DIR_MLX) -I $(DIR_HEADERS) -I $(DIR_LIBFT)
 
 # ------------ COMPILATION ------------ #
 
@@ -41,47 +56,43 @@ OS				= $(shell uname -s)
 DIR_MLX		=	mlx_linux/
 MLX_FLAGS	=	-lXext -lX11 -lm
 
-#-------------  VPATH  ---------------#
-
-VPATH			=	$(DIR_SRCS):$(DIR_LIBFT):$(DIR_HEADERS)
 
 #***********************************  RULES  **********************************#
 
-.PHONY: all
-all:			$(NAME)
+all:			 $(NAME)
 
 # ---------- VARIABLES RULES ---------- #
 
-$(NAME):		mlx libft  $(OBJS) $(LIBFT_A)
-				$(CC) $(CFLAGS) -o $(NAME) $(OBJS) -I $(DIR_LIBFT) -L $(DIR_LIBFT) -lft -I $(DIR_MLX) -L $(DIR_MLX) -lmlx $(MLX_FLAGS)
+$(NAME):		 $(OBJS) $(mlx) $(libft)
+				$(CC) $(CFLAGS) $(OBJS) $(INCLUDES) -L $(DIR_LIBFT) -lft -L $(DIR_MLX) -lmlx $(MLX_FLAGS) -o $(NAME)
 
 # ---------- COMPILED RULES ----------- #
 
--include $(DEPS)
+$(DIR_BUILD)%.o: %.c ${HEADERS} | $(DIR_BUILD)
+				$(CC) $(CFLAGS) $(DEPS_FLAGS) $(INCLUDES) -O3 -c $< -o $@
 
-$(DIR_BUILD)%.o: %.c
-				mkdir -p $(shell dirname $@)
-				$(CC) $(CFLAGS) $(DEPS_FLAGS) -I $(DIR_MLX) -I $(DIR_HEADERS) -c $< -o $@
 
-.PHONY: mlx
-mlx:
+$(mlx): FORCE
 	            		$(MAKE) -C $(DIR_MLX)
 
-.PHONY: libft
-libft:
-	            		$(MAKE) -C $(DIR_LIBFT)
+#------------------CREATE REPO OBJS ---------#
+$(DIR_BUILD):
+		$(MKDIR) $(DIR_BUILD)
 
-.PHONY: clean
+$(libft): FORCE
+	            $(MAKE) -C $(DIR_LIBFT)
+-include $(DEPS)
+
 clean:
 				$(MAKE) -C $(DIR_LIBFT) clean
 				$(MAKE) -C $(DIR_MLX) clean
 				$(RM) $(DIR_BUILD)
 
-.PHONY: fclean
 fclean: clean
 				$(MAKE) -C $(DIR_LIBFT) fclean
 				$(RM) $(NAME)
 
-.PHONY: re
 re:				fclean all
 				$(MAKE) -C ./
+
+.PHONY: all clean fclean re FORCE mlx libft

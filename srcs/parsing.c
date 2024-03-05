@@ -88,10 +88,16 @@ void	parse_map(int fd, t_fdf *fdf)
 		j = 0;
 		while (j < fdf->my_map.width)
 		{
-			fdf->my_map.coordonates.z[i][j] = ft_atoi(split_lines[j]);
-			j++;
+			if (split_lines[j] == NULL)
+			{
+				raise_error(FAILED_MALLOC, fdf, &fd);
+			}
+			else
+			{
+				fdf->my_map.coordonates.z[i][j] = ft_atoi(split_lines[j]);
+				j++;
+			}
 		}
-		j = 0;
 		ft_free_split(split_lines);
 		i++;
 	}
