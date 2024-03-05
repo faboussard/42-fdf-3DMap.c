@@ -27,5 +27,7 @@ enum	e_hooking_event
 
 void	ft_hook(t_fdf *fdf);
 int		close_hook(t_fdf *fdf);
+int		key_hook(int keycode, t_fdf *fdf);
+void	destroy_and_recreate_img(t_fdf *fdf);
 
 #endif //EVENTS_H

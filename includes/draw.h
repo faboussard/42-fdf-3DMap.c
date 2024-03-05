@@ -16,5 +16,9 @@
 # include "init.h"
 
 void	create_lines(t_fdf *fdf);
+void	my_pixel_put(t_fdf *fdf, int x, int y);
+float	get_step(float *step, float *dx, float *dy);
+void	draw_y(t_fdf *fdf, int i);
+void	draw_x(t_fdf *fdf, int i);
 
 #endif //DRAW_H

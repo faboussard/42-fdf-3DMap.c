@@ -15,6 +15,7 @@
 #include "events.h"
 #include "init.h"
 #include "isometric_projection.h"
+#include "parsing.h"
 #include <mlx.h>
 
 int	main(int argc, char **argv)

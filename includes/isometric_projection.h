@@ -16,5 +16,7 @@
 void	isometric_projection(t_fdf *fdf);
 void	ft_resize(t_fdf *fdf);
 void	reverse_resize(t_fdf *fdf);
+void	calculate_destination_x(t_fdf *fdf, double radian);
+void	calculate_destination_y(t_fdf *fdf, double radian);
 
 #endif //ISOMETRIC_PROJECTION_H

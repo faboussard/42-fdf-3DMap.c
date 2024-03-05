@@ -12,6 +12,7 @@ vpath %c srcs
 LIST_SRCS		=	main\
 					events\
 					parsing\
+					parsing_utils\
 					init\
 					error_management\
 					draw\

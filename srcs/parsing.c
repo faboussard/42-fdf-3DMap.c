@@ -13,46 +13,29 @@
 #include "../libft/inc/libft.h"
 #include "error_management.h"
 #include "init.h"
+#include "parsing.h"
 
-void	init_height(int fd, t_fdf *fdf)
+void	init_data(t_fdf *fdf, const char *filename)
 {
-	int		i;
-	char	*line;
+	int	fd;
 
-	line = get_next_line(fd);
-	i = 1;
-	while (line != NULL && line[0] != '\n')
-	{
-		free(line);
-		line = get_next_line(fd);
-		i++;
-	}
-	if (line)
-		free(line);
-	fdf->my_map.height = i;
-}
-
-void	init_width(int fd, t_fdf *fdf)
-{
-	int		i;
-	char	*line;
-	char	**split_lines;
-
-	line = get_next_line(fd);
-	if (line == NULL)
-		raise_error(FAILED_MALLOC, fdf, &fd);
-	i = 0;
-	split_lines = ft_split(line, ' ');
-	if (split_lines == NULL)
-	{
-		free(line);
-		raise_error(FAILED_MALLOC, fdf, &fd);
-	}
-	free(line);
-	while (split_lines[i] != NULL)
-		i++;
-	ft_free_tab((void **) split_lines, i);
-	fdf->my_map.width = i;
+	fd = open(filename, O_RDONLY);
+	if (fd < 0)
+		raise_error(FAILED_OPENING, fdf, 0);
+	init_width(fd, fdf);
+	init_height(fd, fdf);
+	init_coordonates(fdf);
+	close(fd);
+	fd = open(filename, O_RDONLY);
+	if (fd < 0)
+		raise_error(FAILED_OPENING, fdf, 0);
+	check_map(fd, fdf);
+	close(fd);
+	fd = open(filename, O_RDONLY);
+	if (fd < 0)
+		raise_error(FAILED_OPENING, fdf, 0);
+	parse_map(fd, fdf);
+	close(fd);
 }
 
 char	**parse_line(int fd, t_fdf *fdf)
@@ -88,35 +71,35 @@ void	parse_map(int fd, t_fdf *fdf)
 		j = 0;
 		while (j < fdf->my_map.width)
 		{
-			if (split_lines[j] == NULL)
-			{
-				raise_error(FAILED_MALLOC, fdf, &fd);
-			}
-			else
-			{
-				fdf->my_map.coordonates.z[i][j] = ft_atoi(split_lines[j]);
-				j++;
-			}
+			fdf->my_map.coordonates.z[i][j] = ft_atoi(split_lines[j]);
+			j++;
 		}
 		ft_free_split(split_lines);
 		i++;
 	}
 }
 
-void	init_data(t_fdf *fdf, const char *filename)
+void	check_map(int fd, t_fdf *fdf)
 {
-	int	fd;
+	int		i;
+	int		j;
+	char	**split_lines;
 
-	fd = open(filename, O_RDONLY);
-	if (fd < 0)
-		raise_error(FAILED_OPENING, fdf, 0);
-	init_width(fd, fdf);
-	init_height(fd, fdf);
-	init_coordonates(fdf);
-	close(fd);
-	fd = open(filename, O_RDONLY);
-	if (fd < 0)
-		raise_error(FAILED_OPENING, fdf, 0);
-	parse_map(fd, fdf);
-	close(fd);
+	i = 0;
+	while (i < fdf->my_map.height)
+	{
+		split_lines = parse_line(fd, fdf);
+		j = 0;
+		while (j < fdf->my_map.width)
+		{
+			if (split_lines[j] == NULL)
+			{
+				ft_free_split(split_lines);
+				raise_error(FAILED_MALLOC, fdf, &fd);
+			}
+			j++;
+		}
+		ft_free_split(split_lines);
+		i++;
+	}
 }

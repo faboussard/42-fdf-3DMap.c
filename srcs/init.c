@@ -50,34 +50,6 @@ void	init_window(t_fdf *fdf)
 	init_image(fdf);
 }
 
-void	init_coordonates(t_fdf *fdf)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	allocate_arrays(fdf, (int **)&fdf->my_map.coordonates.x,
-		fdf->my_map.height);
-	allocate_arrays(fdf, (int **)&fdf->my_map.coordonates.y,
-		fdf->my_map.height);
-	while (i < fdf->my_map.height)
-	{
-		j = 0;
-		fdf->my_map.coordonates.x[i] = malloc(sizeof(int) * fdf->my_map.width);
-		fdf->my_map.coordonates.y[i] = malloc(sizeof(int) * fdf->my_map.width);
-		if (fdf->my_map.coordonates.x[i] == NULL
-			|| fdf->my_map.coordonates.y[i] == NULL)
-			raise_error(FAILED_MALLOC, fdf, 0);
-		while (j < fdf->my_map.width)
-		{
-			fdf->my_map.coordonates.y[i][j] = j;
-			fdf->my_map.coordonates.x[i][j] = i;
-			j++;
-		}
-		i++;
-	}
-}
-
 void	allocate_arrays(t_fdf *fdf, int **coordonates, int size)
 {
 	if (coordonates)
